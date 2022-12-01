@@ -42,7 +42,7 @@ student@student-VirtualBox:~/projects/hello$ code .
 Open hello.c to editor (select explorer on top-left icon and click hello.c)
 Press 'F5' key to cross-build the C code to armv6 binary, copy the file to raspi, and start debugger process on raspi. 
 A successful debug session will result in code stopped on first code line and having full visibility to all variables in code. You can now single step through the code.
-A feature of this setup is that there is no way to see the stdout stream. This is not really a problem, since we a focused in developing embedded devices where there are no operators looking at displays; instead we want to have log files for later inspection. So this example demonstrates log file output. You can open a ssh terminal to rpi and view the output file using command ```tail -f x.out```. The log file does not update in real-time, since the output buffer is not flushed to file after every write. You could add flush commands to C code make this happen.   
+A feature of this setup is that there is no way to see the stdout stream. This is not really a problem, since we a focused in developing embedded devices where there are no operators looking at displays; instead we want to have log files for later inspection. So this example demonstrates log file output. You can open a ssh terminal to rpi and view the output file using command ```tail -f lab1.out```. The log file does not update in real-time, since the output buffer is not flushed to file after every write. You could add flush commands to C code make this happen.   
 
 
 ## Some references
