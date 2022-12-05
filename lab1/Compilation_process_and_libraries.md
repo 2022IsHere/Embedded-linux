@@ -93,14 +93,16 @@ end
 
 Cross-compiled executables cannot be run on development environment (x86 processor does not understand cross-compiled arm instructions; this fact is indicated with color codes in diagram below). Well, actually it would be possible to set up QEMU for arm processor emulation on x86, but here we aim to have a system running on actual hardware with real sensors and actuators, so emulation is not good enough. 
 
-Gdb functionality is divided into two parts, with full gdb running on development system and more limited gdbserver running on target system. Gdb handles everything related to symbols and user interface, and gdbserver does only target control parts.
+Why do we want to use a complex cross-development setup? We could just install and use the compiler on target system? Cross-development setup has the benefit of separating the development and building tasks from the target system limitations: low CPU capacity, small main memory, slow mass memory, limited display resolutions, unreliable hardware, etc. On-target development is possible for small demo programs, but very soon these limitations make working slow and difficult.
+
+In cross-development setup, gdb debugging functionality is divided into two parts. Full gdb runs on development system and more limited gdbserver runs on target system. Gdb handles everything related to symbols and user interface, and gdbserver does only target control parts.
 
 In this setup we end up having multiple instances of the shared libraries:
 - Cross-compiler on development system needs a version of target library to check shared symbol names and library versions. Glibc and gcc versions must be in sync for the toolchain. In lab VM we use gcc 12.1 with glibc 2.28.
-- The running code on target system needs access to run-time libraries, and run-time library versions are set by the Linux distro version you are running on target. In lab setup we have Raspbian OS based on debian bullseye, with glibc 2.31. The run-time libarray version should be newer than the build-time library version (Glibc is backwards compatible). 
+- The running code on target system needs access to run-time libraries, and run-time library versions are set by the Linux distro version you are running on target. In lab setup we have Raspbian OS based on debian bullseye, with glibc 2.31. The run-time library version should be newer than the build-time library version (Glibc is backwards compatible). 
 - Gdb debugger on development system needs to read symbol information from the libraries. These libraries must match target platform libraries. 
 
-Practical consequences as indicated by "manual sync" arrow in graph:
+Practical consequences (in lab setup) are indicated by "manual sync" arrow in graph:
 - if you `sudo apt update && sudo apt upgrade` packages, you should the same in debugger environment  
 - when you `sudo apt install` new packages (including new libraries) to target system, you should install the libraries to debugger environment too
 ```bash
