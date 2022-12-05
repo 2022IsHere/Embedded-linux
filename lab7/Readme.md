@@ -17,20 +17,18 @@ pi@raspberrypi:~ $ sudo systemctl status lighttpd.service
 ```
 Status should contain states <b>loaded, enabled, running</b>
 
-<b>You must copy default index page `cp /usr/share/lighttpd/index.html /var/www/html/`</b>  
-
-Additionally, you should be able to see default placeholder page with browser at raspi IP:  http://xx.xx.xx.xx
+You should be able to see the default placeholder page with browser at raspi IP:  http://xx.xx.xx.xx
 Note that this must be http, so if browser forces to use https there will be no connection.
 
-QUESTION #1: Take a screenshot of browser that shows placeholder page served from raspi.
+QUESTION #1: From the VM, get default page content to file using ``curl http://x.x.x.x > result1.html``, put it into lab7/results repo path, commit and push. 
 
 If you have problems here, jump to [troubleshooting](#troubleshooting)
 
 ## Step 2: Understanding server configuration
 
-The server main config file can be edited with
+The server main config file is named `lighttpd.conf`. Find it using `sudo find / -name filename`, and edit the file as root user
 ```
-pi@raspberrypi:~ $ sudo nano /etc/lighttpd/lighttpd.conf
+pi@raspberrypi:~ $ sudo nano /path-to-config/lighttpd.conf
 ```
 It is always a recommended practise to make sure you understand how the setup behaves when something goes wrong. So, the first step before making any more complex changes to configuration, we make an intentional error there and check that we see proper ewrror messages.
 So, add the following line anywhere in config file:
@@ -39,7 +37,7 @@ jkcergfserjkctgheuy rhfesyc
 ```
 save file, and reload service with new config:
 ```
-pi@raspberrypi:~ $ sudo systemctl reload lighttpd.service
+pi@raspberrypi:~ $ sudo service lighttpd force-reload
 ```
 Well, where is our error message? Try checking out following things:
 ```
@@ -47,14 +45,20 @@ pi@raspberrypi:~ $ sudo systemctl status lighttpd.service
 pi@raspberrypi:~ $ sudo tail -20 /var/log/lighttpd/error.log
 pi@raspberrypi:~ $ sudo tail -20 /var/log/syslog
 ```
-QUESTION #2: Where did you find information on which file and line your error was?
+QUESTION #2: Where did you find information on which file and line your error was? Get the relevant error message to file result2, put it into lab7/results repo path, commit and push.
 
-Finally, remove the offending line from config, save file and relaod service. Check that it runs normally again.
+Finally, remove the offending line from config, save file and start service. Check that it runs normally again. (Hint: force-reload requires the service is running, so it may fail. You need to <b>start</b> the service.
+> There is a nice summary on systemctl features: https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units (and of course chapter 18.10 in NDG Linux course).
 
 
 ## Step 3: Configuring server logging
 
-lighttpd has modular design, so every new feature you need to add a module for that. This makes sense securitywise: if you do not need some feature, then you do not need to have a wider attack surface.
+You will want to have maximal visibility into your system, so it is necessary to find out how to add more logging.
+
+lighttpd has modular design, so for every new feature you need to add a new module. This makes sense securitywise: if you do not need some feature, then you do not need to suffer a wider attack surface.
+
+> A web server access log is a list of all requests for individual files that people or bots have requested from a website. 
+
 ```
 pi@raspberrypi:~ $ sudo lighty-enable-mod accesslog
 pi@raspberrypi:~ $ sudo service lighttpd force-reload
@@ -64,7 +68,6 @@ Next you need to find out where is that access log. You should start with readin
 ```
 pi@raspberrypi:~ $ sudo tail -f [path to access file]
 ```
-
 This command shows the tail of the log file, and updates when new log rows appear. You can now refresh your browser and you should see new events in access log.  
 Next, we want more verbosity in the logs. Add the following lines to end of lighttpd main config file
 ```
@@ -75,11 +78,7 @@ debug.log-file-not-found = "enable"
 debug.log-condition-handling = "enable" 
 debug.log-timeouts = "enable" 
 ```
-then reload
-```
-pi@raspberrypi:~ $ sudo service lighttpd force-reload
-```
-The verbose logs will go to error.log file (...even though if there were no errors with the requests...). Repeat page refresh in browser and check that error.log has verbose content, like
+and reload the configuration. The verbose logs will go to error.log file (...even though if there were no errors with the requests...). Repeat page refresh in browser and check that error.log has verbose content, like
 ```
 ...
 2022-02-03 05:09:54: (response.c.658) -- logical -> physical 
@@ -96,18 +95,20 @@ The verbose logs will go to error.log file (...even though if there were no erro
 ...
 ```
 
-QUESTION #3: Copypaste a snippet of log output showing verbose content
+QUESTION #3: Copypaste a snippet of log output showing verbose content to file lab7/result3.log, commit and push.
 
 ## Step 4: Configuring SSL
 
 Next we want enable https connection. For that the server needs to have SSL keys and a certificate.  
-
+> A proper <b>SSL/TLS certificate</b> would require a public IP and a domain name. As we are working in a private network, we can only have a <b>self signed certificate</b>. Browsers are not happy with self-signed certificates (securitywise, they do not certify much, because anyone can create one).
 ```
 pi@raspberrypi:~ $ sudo mkdir /etc/lighttpd/certs
 pi@raspberrypi:~ $ sudo openssl req -new -x509 -keyout /etc/lighttpd/certs/lighttpd.pem -out /etc/lighttpd/certs/lighttpd.pem -days 365 -nodes
 pi@raspberrypi:~ $ sudo chmod 400 /etc/lighttpd/certs/lighttpd.pem
 ```
 It really doesn't matter what you fill in for the interactive questions, because we are using raspi with IP address only, not hostname.
+
+> Web servers are very sensitive to access permissions for the certificate key files. If you set too wide permissions for the keys, then server does not accept your certificate.
 
 Then we enable ssl for lighttpd. You need to make these two changes to main config file:
 ```
@@ -131,21 +132,19 @@ $SERVER["socket"] == ":443" {
 Reload config and check that you can get https connection (you'll need to navigate past "insecure certificate" warnings in browser).  
 For more options, see https://redmine.lighttpd.net/projects/1/wiki/HowToSimpleSSL
 
-QUESTION #4: Take a screenshot browser that shows placeholder page served from raspi **over https**.
+QUESTION #4:  From the VM, get default page content to file using ``curl https://x.x.x.x > result4.html``, put it into lab7/results repo path, commit and push. 
 
 ## Step 5: Set up your own static pages
 
 Before making any changes:
-	- where is current placeholder page located (== document root)? Hint: READ the placeholder file content!
-	- who is the owner/group for the current index file (placeholder page)?
+	- where is current placeholder page located (== document root)? Hint: READ the placeholder file content! (You have it conveniently stored in your repo as well.)
+	- who is the owner/group for the current index file (placeholder page)? Web server needs to read access for the file.
 
 To Do:
   - in document root create subfolder "orig", move the existing placeholder file there and check that browser finds it https://xx.xx.xx.xx/orig (and 403 from doc root)
   - create new index.html file with content X, check with browser. For content, see HTML tutorials in https://www.w3schools.com/html/html_examples.asp
 
-QUESTION #5: Take a screenshot of browser that shows your test page served from raspi.
-
-
+QUESTION #5: From the VM, get default page content to file using ``curl https://x.x.x.x/orig > result5.html``, put it into lab7/results repo path, commit and push. 
 
 
 ## Troubleshooting
