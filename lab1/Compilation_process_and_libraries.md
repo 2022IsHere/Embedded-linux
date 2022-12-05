@@ -33,7 +33,7 @@ Sources
 | readelf | Information on binary executable and object files. Can show architecture and symbols in file. <br>`readelf --headers a.out`<br>`readelf --symbols a.out`<br>`readelf -d lab2 \| grep NEEDED` shows what library function versions an executable requires | 
 | objdump | Information on binary executable and object files. <br>`objdump -T a.out \| grep -F '*UND*'` shows list of required library functions and GLIBC versions for an executable | 
 | ldd | Lists dynamically linked (shared) libraries that an executable requires to be loaded for running.<br>`ldd a.out`<br>`ldd --version` #shows running version of GLIBC |
-| strings | Extracts constant strings from a binary file. <br>`strings -a a.out \| grep "GCC: ("` shows with which GCC version the executable was built |
+| strings | Extracts constant strings from a binary file. <br>`strings -a a.out \| grep "GCC: ("` shows with which GCC version the executable was built<br>`strings /lib/arm-linux-gnueabihf/libc.so.6 \| grep "GNU"` to find glibc version of libc.so.6 for arbitrary target architecture |
 | gcc | GNU C compiler and linker.<br>`gcc main.c`<br>`gcc main.c sub.c -o lab1b` |
 
 
