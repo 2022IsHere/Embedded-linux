@@ -37,12 +37,23 @@ Please add users `jppaalas` and `jarno.tuominen` to the project with "Reporter" 
 The installed VM is naturally the same for all students, but will want to use your own identity to sync with TUAS gitlab repository. 
 - Configure git identity
 ```bash
-   $ git config --global user.name "Mona Lisa"
-   $ git config --global user.email "YOUR_EMAIL"
+   student@student-VirtualBox:~$ git config --global user.name "Mona Lisa"
+   student@student-VirtualBox:~$ git config --global user.email "YOUR_EMAIL"
 ```
 - Create keypair for the VM:
 ```bash
-   $ ssh-keygen -t rsa -b 2048 -f /home/student/id_rsa -q -N ""
+   student@student-VirtualBox:~$ ssh-keygen -t rsa -b 2048 -f /home/student/id_rsa -q -N ""
 ```
-- Copy your public key to your forked project in TUAS gitlab (top right corner, "Edit profile"/ ssh keys).
+- Copy your public key to your forked project in TUAS gitlab: print your public key on terminal, copy content and paste to TUAS gitlab in browser (top right corner, "Edit profile / SSH Keys").
+```bash
+   student@student-VirtualBox:~$ cat /home/student/id_rsa.pub
+```
 - (Change passwd for student on VM)
+
+### Step 4: Clone your remote repository to your VM
+
+```bash
+   student@student-VirtualBox:~$ git clone git@git.dc.turkuamk.fi:YOUR-NAMESPACE/embedded-linux-labs.git
+```
+If gitlab asks for credentials, then your SSH keys setting has failed.  
+You should now have a local git repository containing all lab assignments and files, linked to a private remote repository in TUAS gitlab. 
