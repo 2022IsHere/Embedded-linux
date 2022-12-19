@@ -1,96 +1,220 @@
-# Lab 8 - Set up CGI app server
+# Lab 7. Setting up web server on RasPi
 
-This lab requires you to have set up lighttpd server on raspi as instructed in Lab 7.
+## Step 1: Setting up a web server on raspi
 
-## Step 1: Set up CGI for lighttpd
-
-Enable cgi mod:
+As always, you'll want to start with an up-to-date RasPi system. Open up a ssh connection
 ```
-pi@raspberrypi:~ $ sudo lighty-enable-mod cgi
+pi@raspberrypi:~ $ sudo apt update
+pi@raspberrypi:~ $ sudo apt upgrade
+pi@raspberrypi:~ $ sudo apt install lighttpd
 ```
+In order to keep cross-development environment synced, you should replicate this on VM debug environment. Check Lab1 instructions for this.
 
-Replace default assignments in `/etc/lighttpd/conf-enabled/10-cgi.conf` with 
+The installation will get everything done: install necessary files with basic configuration, start the service, and enable the service so that it will start after next reboot as well.
+To verify this 
 ```
-    cgi.assign      = (
-        ".sh"  => "/usr/bin/bash",
-        ".py"  => "/usr/bin/python",
-        ".cgi"  => "",
-    )
+pi@raspberrypi:~ $ sudo systemctl status lighttpd.service
 ```
-> The assigment part means that url example https://xx.xx.xx.xx/cgi-bin/demo.sh will create a new shell process (environment vars containing request parameters), and it automatically runs `/usr/bin/bash /usr/lib/cgi-bin/demo.sh`, collects all stdout output and sends that as response to browser request.
-> To run binary code, it is necessary to use file suffix ".cgi" so that binary files recognised correctly. Normally in linux, executables do not have file suffixes (whereas in Windows they are ".exe")
+Status should contain states <b>loaded, enabled, running</b>
 
-Copy example pydemo.py file from this repository into `/usr/lib/cgi-bin/pydemo.py` 
+You should be able to see the default placeholder page with browser at raspi IP:  http://xx.xx.xx.xx
+Note that this must be http, so if browser forces to use https there will be no connection.
 
-Finally, reload:
+QUESTION #1: From the VM, get default page content to file using ``curl http://x.x.x.x > result1.html``, put it into lab7/results repo path, commit and push. 
+
+If you have problems here, jump to [troubleshooting](#troubleshooting)
+
+## Step 2: Understanding server configuration
+
+The server main config file is named `lighttpd.conf`. Find it using `sudo find / -name filename`, and edit the file as root user
+```
+pi@raspberrypi:~ $ sudo nano /path-to-config/lighttpd.conf
+```
+It is always a recommended practise to make sure you understand how the setup behaves when something goes wrong. So, the first step before making any more complex changes to configuration, we make an intentional error there and check that we see proper ewrror messages.
+So, add the following line anywhere in config file:
+```
+jkcergfserjkctgheuy rhfesyc
+```
+save file, and reload service with new config:
 ```
 pi@raspberrypi:~ $ sudo service lighttpd force-reload
 ```
-and check operation with browser `https:/xx.xx.xx.xx/cgi-bin/pydemo.py`.  
-Troubleshooting: If 500 internal server error, check that you really can run the python code: `python /usr/lib/cgi-bin/pydemo.py` 
-Note that every time you change the content of cgi-bin contents, you must reload configuation before changes take effect! In contrast, if you change statically server file content, reload is not required.
-
-QUESTION #1: Take a screenshot of browser that shows your successful request served from python.
-
-## Step 2: Develop CGI programs using C
-
-So, every CGI request will run the binary in fresh new shell, and all parameters are transmitted via shell environment variables. How can we develop cgi apps efficiently?
-1. We need to know exactly what kind of parameters each request will have
-2. We can then replicate any request content in env vars 
-    - in Eclipse, by copying env vars to debug setup  ![Eclipse Debug setup](/images/Eclipse-debug-envvars.png "Eclipse Debug setup")
-    - on CLI, by prepending env vars to executable:
+Well, where is our error message? Try checking out following things:
 ```
-pi@raspberrypi:~ $ DOCUMENT_ROOT=/usr/lib/cgi-bin/ REQUEST_METHOD=GET SERVER_PROTOCOL=HTTP/1.1 ./mycgitest.cgi
+pi@raspberrypi:~ $ sudo systemctl status lighttpd.service
+pi@raspberrypi:~ $ sudo tail -20 /var/log/lighttpd/error.log
+pi@raspberrypi:~ $ sudo tail -20 /var/log/syslog
+```
+QUESTION #2: Where did you find information on which file and line your error was? Get the relevant error message to file result2, put it into lab7/results repo path, commit and push.
+
+Finally, remove the offending line from config, save file and start service. Check that it runs normally again. (Hint: force-reload requires the service is running, so it may fail. You need to <b>start</b> the service.
+> There is a nice summary on systemctl features: https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units (and of course chapter 18.10 in NDG Linux course).
+
+
+## Step 3: Configuring server logging
+
+You will want to have maximal visibility into your system, so it is necessary to find out how to add more logging.
+
+lighttpd has modular design, so for every new feature you need to add a new module. This makes sense securitywise: if you do not need some feature, then you do not need to suffer a wider attack surface.
+
+> A web server access log is a list of all requests for individual files that people or bots have requested from a website. 
+
+```
+pi@raspberrypi:~ $ sudo lighty-enable-mod accesslog
+pi@raspberrypi:~ $ sudo service lighttpd force-reload
+pi@raspberrypi:~ $ sudo systemctl status lighttpd.service
+```
+Next you need to find out where is that access log. You should start with reading the main config file in (Raspi) /etc/lighttpd/lighttpd.conf and also reading through the included config files. Then,
+```
+pi@raspberrypi:~ $ sudo tail -f [path to access file]
+```
+This command shows the tail of the log file, and updates when new log rows appear. You can now refresh your browser and you should see new events in access log.  
+Next, we want more verbosity in the logs. Add the following lines to end of lighttpd main config file
+```
+debug.log-request-header = "enable" 
+debug.log-response-header = "enable" 
+debug.log-request-handling = "enable" 
+debug.log-file-not-found = "enable" 
+debug.log-condition-handling = "enable" 
+debug.log-timeouts = "enable" 
+```
+and reload the configuration. The verbose logs will go to error.log file (...even though if there were no errors with the requests...). Repeat page refresh in browser and check that error.log has verbose content, like
+```
+...
+2022-02-03 05:09:54: (response.c.658) -- logical -> physical 
+2022-02-03 05:09:54: (response.c.659) Doc-Root     : /var/www/html 
+2022-02-03 05:09:54: (response.c.660) Basedir      : /var/www/html 
+2022-02-03 05:09:54: (response.c.661) Rel-Path     : /orig/ 
+2022-02-03 05:09:54: (response.c.662) Path         : /var/www/html/orig/ 
+2022-02-03 05:09:54: (response.c.674) -- handling physical path 
+2022-02-03 05:09:54: (response.c.675) Path         : /var/www/html/orig/ 
+2022-02-03 05:09:54: (response.c.682) -- handling subrequest 
+2022-02-03 05:09:54: (response.c.683) Path         : /var/www/html/orig/ 
+2022-02-03 05:09:54: (response.c.684) URI          : /orig/ 
+2022-02-03 05:09:54: (response.c.685) Pathinfo     :  
+...
 ```
 
-So we need to find out what are the env vars provided by CGI interface. Fortunately, someone has already solved this phase whis this c code 
-https://www.lemoda.net/c/cgi-getenv/env-cgi.c
+QUESTION #3: Copypaste a snippet of log output showing verbose content to file lab7/result3.log, commit and push.
 
-Try it out:
-1. Create eclipse C cross-compile project:
-    - "C/C++ project" , "C Managed Build", "Hello World arm C project"
-         - for "Linker semi-hosting", erase the line completely
-    - when created, check in project properties that target architecture is "Cortex-a72" as for RasPi4 ("C/C++ build" / "Settings")
-2. Replace main.c content with contents of file link above, make sure your project has Linaro toolchain ("Project properties"/"C/C++ Build"/"Settings" and there tab "Toolchains") & build project. 
+## Step 4: Configuring SSL
+
+Next we want enable https connection. For that the server needs to have SSL keys and a certificate.  
+> A proper <b>SSL/TLS certificate</b> would require a public IP and a domain name. As we are working in a private network, we can only have a <b>self signed certificate</b>. Browsers are not happy with self-signed certificates (securitywise, they do not certify much, because anyone can create one).
 ```
-3:43:41 **** Build of configuration Debug for project cgi-demo ****
-make all 
-Building file: ../src/main.c
-Invoking: GNU Arm Cross C Compiler
-arm-linux-gnueabihf-gcc -mcpu=cortex-a72 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -std=gnu11 -MMD -MP -MF"src/main.d" -MT"src/main.o" -c -o "src/main.o" "../src/main.c"
-Finished building: ../src/main.c
- 
-Building target: cgi-demo.elf
-Invoking: GNU Arm Cross C Linker
-arm-linux-gnueabihf-gcc -mcpu=cortex-a72 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -Xlinker --gc-sections -Wl,-Map,"cgi-demo.map" -o "cgi-demo.elf"  ./src/main.o   
-Finished building target: cgi-demo.elf
+pi@raspberrypi:~ $ sudo mkdir /etc/lighttpd/certs
+pi@raspberrypi:~ $ sudo openssl req -new -x509 -keyout /etc/lighttpd/certs/lighttpd.pem -out /etc/lighttpd/certs/lighttpd.pem -days 365 -nodes
+pi@raspberrypi:~ $ sudo chmod 400 /etc/lighttpd/certs/lighttpd.pem
+```
+It really doesn't matter what you fill in for the interactive questions, because we are using raspi with IP address only, not hostname.
+
+> Web servers are very sensitive to access permissions for the certificate key files. If you set too wide permissions for the keys, then server does not accept your certificate.
+
+Then we enable ssl for lighttpd. You need to make these two changes to main config file:
+```
+server.modules = (
+	"mod_indexfile",
+	"mod_access",
+	"mod_alias",
+	"mod_redirect",
+	"mod_openssl",      # <-- add this module
+)
+
+...
+
+# add these lines to end of file
+$SERVER["socket"] == ":443" {
+  ssl.engine = "enable" 
+  ssl.pemfile = "/etc/lighttpd/certs/lighttpd.pem" 
+}
+
+```
+Reload config and check that you can get https connection (you'll need to navigate past "insecure certificate" warnings in browser).  
+For more options, see https://redmine.lighttpd.net/projects/1/wiki/HowToSimpleSSL
+
+QUESTION #4:  From the VM, get default page content to file using ``curl https://x.x.x.x > result4.html``, put it into lab7/results repo path, commit and push. 
+
+## Step 5: Set up your own static pages
+
+Before making any changes:
+	- where is current placeholder page located (== document root)? Hint: READ the placeholder file content! (You have it conveniently stored in your repo as well.)
+	- who is the owner/group for the current index file (placeholder page)? Web server needs to read access for the file.
+
+To Do:
+  - in document root create subfolder "orig", move the existing placeholder file there and check that browser finds it https://xx.xx.xx.xx/orig (and 403 from doc root)
+  - create new index.html file with content X, check with browser. For content, see HTML tutorials in https://www.w3schools.com/html/html_examples.asp
+
+QUESTION #5: From the VM, get default page content to file using ``curl https://x.x.x.x/orig > result5.html``, put it into lab7/results repo path, commit and push. 
+
+
+## Troubleshooting
+
+#### lighttpd service not starting
+
+```
+pi@raspberrypi:~ $ sudo systemctl status lighttpd.service
+```
+Does your lighttpd service show green? Loaded, running & enabled?
+
+If not, try starting it, and then check all logs to find first error message with line & column numbers:
+```
+pi@raspberrypi:~ $ sudo systemctl start lighttpd.service
+pi@raspberrypi:~ $ sudo systemctl status lighttpd.service
+pi@raspberrypi:~ $ sudo tail -20 /var/log/lighttpd/error.log
+pi@raspberrypi:~ $ sudo tail -20 /var/log/syslog
+pi@raspberrypi:~ $ journalctl -u lighttpd.service
+```
+> There is a nice summary on systemctl features: https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units (and of course chapter 18.10 in NDG Linux course).
+
+
+#### Browser times out: "The connection has timed out" or "This site can’t be reached"
+
+1. Check that lighttpd service is up and running (as above)
+2. Check that your browser is trying to connect the correct IP address
+    - raspi ip as shown in raspi CLI `ip a show eth0` and look at IPv4 address there
+3. Check that your browser is trying to use a protocol that i supported by your lighttpd configuration (in first steps http only)
+    - to see if it is a browser broblem, try form CLI as well (both VM/Linux and host/Windows apply)   
+    `curl http://xx.xx.xx.xx`  
+    `curl --insecure https://xx.xx.xx.xx`  
+    - if browser problem, check your browser settings if they enforce https
+4. Check that your browser and raspi are in same network
+    - in both raspi and Ubuntu VM `ip a` shows IP
+    - Ubuntu VM must use "bridged" mode network interface, and that physical parent interface must be connected to the same network where raspi is
+    - your VM network adapter state is "Cable: Connected" (icons on bottom right in VM window)
+    - try ping both ways
+5.Check that there are no firewall settings that block connections
+    - in raspi and Ub untu VM `sudo iptables -L`
+6. Check that all devices have healthy network stacks
+    - in all three systems (raspi, VM, laptop host OS), try pinging the default gateway. 
+        - in Linux default GW IP should be found using `ip r` "default via x.x.x.x",  
+          in Windows `ipconfig /all` and/or `route print` 
+        - in elelab network default GW should be 172.27.224.0
+        - in emblab network default GW should be 172.27.240.0
+    - if any device cannot see default GW, then it has the problem
+        - raspi: try `sudo service networking restart` and if no help, then try reboot
+        - Ubuntu VM: `sudo netplan apply` and if no help, then try reboot
+        - Windows: shutdown VM, reboot Windows.
+
+#### Browser requests are not shown in lighttpd logs
+
+Check that your configs have access logs enabled, the log directory exists, and that the directory and log files are owned by user:group `www-data:www-data` with relevant permissions:
+```
+pi@raspberrypi:/home $ sudo ls -ld /var/log/lighttpd
+drwxr-x--- 2 www-data www-data 4096 Feb  1 14:05 /var/log/lighttpd
+
+pi@raspberrypi:/home $ sudo ls -l /var/log/lighttpd/error.log
+-rw-r--r-- 1 www-data www-data 15010919 Feb  4 07:37 /var/log/lighttpd/error.log
 ```
 
-3. Set up a new debug configuration
-    - target: your raspi
-    - application is the binary you built in step 2
-    - target binary should be `/usr/lib/cgi-bin/env-cgi.cgi`
-4. You should be able to edit and debug the code normally. Additionally, it is served by lighttpd. **Note that these two are two different processes: debugger runs one instance of yourapp; and CGI interface triggers another instance. So you cannot set debugger breakpoints to the instance that was triggered by web request.**  And you shouldn't need to, because the whole interface is defined by env vars and stdout. Those you can test separately. Let's solve that in next steps.
-5. In browser, add query part to url: for example https://xx.xx.xx.xx/cgi-bin/env-cgi.cgi?motor=on&light=off 
-6. Next, modify the c code so that you can directly copy-paste resulting browser page content into eclipse debug settings / environment. (Each line has `varname=value\n` format)
-7. Run the code in debugger again, using simulated environment. You now have easy access to test different query formats and query parsing with variables shown and braekpoints available. Keep a text copy of the environment for use in other projects.
-8. Create a C code that detects motor=on/off in query part, and either controls GPIO output accordingly, or prints an event line to a log file (in case you don't have GPIO hardware).   
-(In a more realistic case you would parse the query part to handle multiple commands. **This has security implications** if you do not take care of buffer overflows, payload sanitation etc. So it is highly recommended to choose tested parser code, maybe https://github.com/jacketizer/libyuarel).   
 
-QUESTION #2: Add snippet of your detection code to the document (5-10 lines max.). 
 
-## Step 3: Detect events from server
-
-Standard http traffic is strictly client-server. Client sends request, and server responds. There is no way server could take initiative and send data to client. To solve this there are standard solutions:
-1. Polling. Client asks regularly (like every second) status from server. Cons are that there is lots of unnecessary traffic, and event detection can be up to one polling interval unit late.
-2. Long polling. Clinet sends request, and servers starts responding immediately, but keeps holding the end of transmission "Hoooo...ooold on", up to several minutes. When there is new data, server can immediately send rest of response message. When client gets something, it sends a new request and long poll gets repeated.
-3. Web sockets are TCP sockets tunneled on http traffic, and they are basically bidirectional.
-
-In this step you'll set up standard polling to get data from the server.
-1. Create Eclipse project CGI for a code that responds with current time. Create CGI project as you did in step 7.  Get the c code `time.c` from this repo. Build, test and deploy to /usr/lib/cgi-bin folder. Try with browser.
-2. The polling takes place in browser, so you need to set up a javascript snippet on your statically served web page. Get the html from this repo `poll-demo.html` and copy it to your web server static content folder. Open the page with browser and verify that you keep getting new data every second.  
-
-Now using CGI means there is a new process created every second. In raspi, check CPU load (use `top` fore example). Ajust the polling rate until raspi load is 50%. What is the polling interval then?  
-
-QUESTION #3: Polling interval for 50% load as milliseconds.
-
+Enable all relevant verbosity in config
+```
+debug.log-request-header = "enable" 
+debug.log-response-header = "enable" 
+debug.log-request-handling = "enable" 
+debug.log-file-not-found = "enable" 
+debug.log-condition-handling = "enable" 
+debug.log-timeouts = "enable" 
+```
+and reload configuration.
