@@ -17,7 +17,32 @@ For Embedded Linux lab works you need to have
 
 ## Lab assignment
 
-### Step 1.
+### Step 1: Install VM
 
-Log into TUAS gilab https://git.dc.turkuamk.fi/ and switch to Groups / Embedded Linux. In that group there is repository `embedded-linux-labs`. Create a private <b>fork</b> to your personal namespace. A fork is a copy of a project. Forking a repository allows you to make changes without affecting the original project. This forked project works as your return repository. Please add users `jppaalas` and `` to the project with x role.
+Download VM image from emblab ftp server ftp://172.27.0.40/Embedded-Linux/raspi-cross-emblab.ova (for this you need to be connected to lab Ethernet socket). Just copy the URL to Windows File Manager address bar. Browsers do not support insecure ftp any more.
+Import VM to VirtualBox.
+Modify configuration:
+- "Bridged" network is recommended. You need to attach the bridge to your Ethernet network interface card.
+- Check the amount of CPU cores and memory allocated for the VM. 2 cores + 2GB RAM should do, but double that amount is better.
+- VM user/passwd is student/student
+Check that you can start the VM, log in and have Ubuntu desktop running with internet connectivity.
 
+### Step 2: Fork lab repository
+
+Log into TUAS gilab https://git.dc.turkuamk.fi/ and in main menu, switch to Groups / Embedded Linux. In that group there is repository `embedded-linux-labs`. Create a private <b>fork</b> to your personal namespace. A fork is a copy of a project. Forking a repository allows you to make changes without affecting the original project. This forked project works as your return repository.  
+Please add users `jppaalas` and `jarno.tuominen` to the project with "Reporter" role.
+
+### Step 3: Customize VM
+
+The installed VM is naturally the same for all students, but will want to use your own identity to sync with TUAS gitlab repository. 
+- Configure git identity
+```bash
+   $ git config --global user.name "Mona Lisa"
+   $ git config --global user.email "YOUR_EMAIL"
+```
+- Create keypair for the VM:
+```bash
+   $ ssh-keygen -t rsa -b 2048 -f /home/student/id_rsa -q -N ""
+```
+- Copy your public key to your forked project in TUAS gitlab (top right corner, "Edit profile"/ ssh keys).
+- (Change passwd for student on VM)
