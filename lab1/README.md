@@ -15,4 +15,9 @@ For Embedded Linux lab works you need to have
 2. TUAS gitlab account and working git skills (developed alongside the labs). Lab instructions and files are distributed from this lab instructions repository, and you will return your work into your personal return repository.
 3. RasPi running gdbserver: this you will set up in the next lab.
 
+## Lab assignment
+
+### Step 1.
+
+Log into TUAS gilab https://git.dc.turkuamk.fi/ and switch to Groups / Embedded Linux. In that group there is repository `embedded-linux-labs`. Create a private <b>fork</b> to your personal namespace. A fork is a copy of a project. Forking a repository allows you to make changes without affecting the original project. This forked project works as your return repository. Please add users `jppaalas` and `` to the project with x role.
 
