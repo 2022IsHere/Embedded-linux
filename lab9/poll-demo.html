@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>CGI poll demo</h1>
+
+<p>Raspi time is polled every 1000msec and displayed. </p>
+
+<p id="id_time">A Paragraph.</p>
+
+<script>
+var apiTimeout = setTimeout(fetchData, 1000);
+
+function fetchData(){
+    fetch('https://'+window.location.hostname+'/cgi-bin/time.cgi')
+    .then(response => response.json())
+    .then(response_json => {
+            var time  = response_json.time;
+            console.log(time);
+            document.getElementById("id_time").innerHTML = time;
+            // Recreate a setTimeout API call which will be fired after 1 second.
+            apiTimeout = setTimeout(fetchData, 1000);
+    })
+    .catch((error) => {
+         clearTimeout(apiTimeout);
+         console.log(error);    });
+}
+</script>
+</body>
+</html>
+
+
