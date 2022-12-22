@@ -58,6 +58,6 @@ The installed VM is naturally the same for all students, but will want to use yo
 If gitlab asks for credentials, then your SSH keys setting has failed.  
 You should now have a local git repository containing all lab assignments and files, linked to a private remote repository in TUAS gitlab. 
 
-### Step 5: Refresh compilation process
+### Step 5: C native compilation
 
 [continued on next page...](compilation_process.md)
