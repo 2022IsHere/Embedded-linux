@@ -4,10 +4,11 @@
 
 git is a <b>distributed version control</b> system. In lab setup this means that you have two identical repositories, one local repository in your development VM and other remote repository at TUAS gitlab service. Both repositories contain full version history (when properly synced), so the setup acts as backup as well.
 
-A version history consists of sequence of <b>commits</b>. Each commit is a set of changes (possibly to multiple files) together with commit message. A good commit
+A version history consists of sequence of <b>commits</b>. Each commit is a set of changes (possibly to multiple files) together with commit message. A good commit  
 - Does not break the code: After each commit the code compiles (although it might not work properly, but at least there are no errors). So you should compile (and test) your code before the commit.
 - Has reasonable workhour limit. If your code does not compile (yet), you might want to backup your progress daily.
-- Has reasonable size. It is good to have multiple smaller commits, so if you add a major feature to code, you might first define necessary data structures and create empty functions with necessary signature (parameter and return types), and maybe bind those functions to main logic (add function calls). This should compile OK and could be committed. Next commit could add features inside the added functions.
+- Has reasonable size. It is good to have multiple smaller commits, so if you add a major feature to code, you might first define necessary data structures and create empty functions with necessary signature (parameter and return types), and maybe bind those functions to main logic (add function calls). This should compile OK and could be committed. Next commit could add features inside the added functions.  
+
 <b>Branch</b> is a parallel sequence of commits. Branches can start at any commit in history (having done multiple small commits during development helps to find good branch points later if necessary). Branches can be <b>merged</b>, i.e. the changes are synced so that two merged branches are in same state. Branches can be used for multiple reasons
 - <b>Feature branches</b> are used for adding major features. Developer creates a new branch from current head, adds all commits into that bracnh until code is final and tested. Then feature branch is merged into main, and that feature branch is deleted. Feature branches scale well: it is possible for multiple developers to work on same project, with each developer team on a separate parallel feature branch.
 - <b>Release branches</b> are used for controlling the release of features to customers. For example the "development" branch is the work-in-progress where feature branches are started and merged. "Release" branch is merged from stable development points. In large teams it might be necessary to have a separate "testing" branch between those two.
@@ -18,13 +19,13 @@ A version history consists of sequence of <b>commits</b>. Each commit is a set o
 Study the videos below and answer to questions into file `embedded-linux-labs/lab1/git-study.md`  
 In this case it makes sense to create the file and write the answers using TUAS gitlab web interface to your personal repository. 
 
-https://git-scm.com/video/what-is-version-control (5:58)
+https://git-scm.com/video/what-is-version-control (5:58)  
 Q1: What are the benefits of using git version control?
 
-https://git-scm.com/video/what-is-git (8:15)
+https://git-scm.com/video/what-is-git (8:15)  
 Q2: What is a distributed version control system?
 
-https://git-scm.com/video/get-going (4:26)
+https://git-scm.com/video/get-going (4:26)  
 Q3: What are the most important git commands in terminal use?
 
 
@@ -39,12 +40,12 @@ GitLab (like GitHub) is a <b>DevOps lifecycle tool</b>. It adds software product
 
 Study the videos below and append your answers into file `embedded-linux-labs/lab1/git-study.md`  
 
-[Introduction to GitLab](https://youtu.be/_4SmIyQ5eis?t=90) (59:51)
-Q4: Explain "GitLab Recommended Process"
+[Introduction to GitLab](https://youtu.be/_4SmIyQ5eis?t=90) (59:51)  
+Q4: Explain "GitLab Recommended Process"  
 Q5: What is a "Merge Request"?
 
-For other material, see  
-https://docs.gitlab.com/ee/tutorials/
+For other material, see   
+https://docs.gitlab.com/ee/tutorials/  
 
 
 ## General guidelines for lab work
