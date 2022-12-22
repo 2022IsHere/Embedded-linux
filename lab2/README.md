@@ -50,7 +50,17 @@ An unwanted feature of this setup is that there is no way to see the stdout stre
 
 ## Lab assignment
 
-After checking that you can get the debugger working proceed to [lab assignment](Compilation_process_and_libraries.md)
+First, make sure that the existing demo code compiles and runs as above.
+
+You did a test run for native compilation in lab1. Your task is to cross-compile that code for raspi.
+- Replace existing demo code with your lab1 code
+- Open another raspi terminal to `tail -f` your code output
+- Debug and test
+- commit to local repo, and push to your TUAS gitlab repo
+
+Where is the executable located (file path) in VM and in raspi?  
+
+After checking that you can get the debugger working proceed to [cross-compilation and libraries](Compilation_process_and_libraries.md)
 
 ## Some references
 
