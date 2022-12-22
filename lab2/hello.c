@@ -2,7 +2,7 @@
 int main()
 {
     FILE *f;
-    f = fopen("lab1.log", "a+"); 
+    f = fopen("lab2.log", "a+"); 
     if (f == NULL) { }
     printf("Hello to stdout\n");
     for(int i=0;i<4;i++) {

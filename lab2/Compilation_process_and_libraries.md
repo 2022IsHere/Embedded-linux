@@ -25,7 +25,7 @@ Sources
 [https://eli.thegreenplace.net/2011/01/23/how-debuggers-work-part-1/]  
 [https://eli.thegreenplace.net/2011/01/27/how-debuggers-work-part-2-breakpoints]  
 
-## Common Linux tools for (cross-)compilation
+## Common Linux command line tools for (cross-)compilation
 
 | cli tool | properties
 |-----------------|:-------------|
@@ -49,7 +49,7 @@ gcc -g main.c mymod.c -o mydemo
 ```bash
 ./mydemo
 ```
-The Linux OS will start the loader, which loads all required shared libraries (see ldd mydemo), links them within process virtual memory map, and runs the application.
+The Linux OS will start the loader, which loads all required shared libraries (can check those with `ldd mydemo`), links them within process virtual memory map, and runs the application.
 
 3. In case of debugging the code, gdb loads the symbols from mydemo (and all referred shared libraries) and user can run the application (or set breakpoints or study variables etc). Normally you would not use gdb directly from command line, but use it integrated to IDE (eclipse or vscode etc). 
 ```bash
@@ -89,11 +89,15 @@ subgraph debug environment
 end
 ```
 
+Reflection: What are the benefits of shared libraries?
+
 ### Cross-compilation flow (see graph below)
 
-Cross-compiled executables cannot be run on development environment (x86 processor does not understand cross-compiled arm instructions; this fact is indicated with color codes in diagram below). Well, actually it would be possible to set up QEMU for arm processor emulation on x86, but here we aim to have a system running on actual hardware with real sensors and actuators, so emulation is not good enough. 
+In the case of native compilation above, the three environments (build, debug and run) are the same. The shared libraries (libc.so.6 etc) are often exactly the same library for all three usage steps: compilation-time, debugging and run-time. 
 
-Why do we want to use a complex cross-development setup? We could just install and use the compiler on target system? Cross-development setup has the benefit of separating the development and building tasks from the target system limitations: low CPU capacity, small main memory, slow mass memory, limited display resolutions, unreliable hardware, etc. On-target development is possible for small demo programs, but very soon these limitations make working slow and difficult.
+Cross-compiled executables cannot be run on development environment (x86 processor does not understand cross-compiled arm instructions; this fact is indicated with color codes in diagram below). So in cross-development environment we need to have our application and all dependent libraries for target system architecture.
+
+Why do we want to use a complex cross-development setup? We could just install and use the compiler on target system? Cross-development setup has the benefit of separating the development and building tasks from the target system limitations: low CPU capacity, small main memory, slow mass memory, no display or limited display resolutions, unreliable hardware, etc. On-target development is possible for small demo programs, but very soon these limitations make working slow and difficult.
 
 In cross-development setup, gdb debugging functionality is divided into two parts. Full gdb runs on development system and more limited gdbserver runs on target system. Gdb handles everything related to symbols and user interface, and gdbserver does only target control parts.
 
@@ -102,9 +106,9 @@ In this setup we end up having multiple instances of the shared libraries:
 - The running code on target system needs access to run-time libraries, and run-time library versions are set by the Linux distro version you are running on target. In lab setup we have Raspbian OS based on debian bullseye, with glibc 2.31. The run-time library version should be newer than the build-time library version (Glibc is backwards compatible). 
 - Gdb debugger on development system needs to read symbol information from the libraries. These libraries must match target platform libraries. 
 
-Practical consequences (in lab setup) are indicated by "manual sync" arrow in graph:
+Practical consequences (in this lab setup) are indicated by "manual sync" arrow in graph:
 - if you `sudo apt update && sudo apt upgrade` packages, you should the same in debugger environment  
-- when you `sudo apt install` new packages (including new libraries) to target system, you should install the libraries to debugger environment too
+- when you `sudo apt install` new packages (including new libraries) to target system, you should install the libraries to debugger environment too:
 ```bash
 pi@rpi0:~ $ sudo apt update
 pi@rpi0:~ $ sudo apt upgrade
@@ -154,4 +158,24 @@ subgraph "Cross development system"
 end
 ```
 
+### Lab assignment
 
+Your task is to identify the C runtime libraries in your development setup (VM and raspi), and return your findings as text doxument in your repository `embedded-linux-labs/lab2/libraries.md` (have a quick look at markdown format while doing this, you have examples all around the repository!)
+- Find all files named `libc.so.6` in both systems VM and raspi (use `find` command; use `sudo` to extend the search to all directories, do net search to get command parameters right)
+- For each library, collect key information
+  - file path
+  - library architecture (use `file` as in cli commands above; you may need to follow symlinks) 
+  - library version (use `strings` as in cli commands above)
+- Identify (file path and version) the three libraries in cross-development diagram above:
+  - Build-time library (in VM)
+  - Run-time library (in raspi)
+  - Debug library (in VM)
+- Glibc library is downwards compatible. Can you be sure that executables built on this setup and target Debian Bullseye will run on
+  - Debian Bookworm (glibc version 2.36)?
+  - Debian Buster (glibc version 2.28)?
+- What do you need to do with development setup, if you 
+  - upgrade the target to Debian Bookworm?
+  - downgrade the target to Debian Buster?
+
+
+Reflection: What are benefits of cross-development setup?
