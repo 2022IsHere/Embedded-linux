@@ -8,7 +8,7 @@ The general process from C source to a running program has four preparation step
 
 The common tool for C compilation in Linux is `gcc`. It is user-friendly by default, and runs steps 1-3 automatically if possible. It is still necessary to understand the process, because the process makes compilation error messages more understandable.
 
-Lab assignment:
+###Lab assignment:
 
 In VM in this your local repository folder (embedded-linux-labs/lab1),
 - write tiny C application that prints timestamped hello message to an output file (use append)
@@ -18,3 +18,5 @@ In VM in this your local repository folder (embedded-linux-labs/lab1),
 - check git status
 - add source file to git (and create .gitignore file and add executable `lab1` there), commit
 - push local repository changes to your remote repository in TUAS gitlab 
+
+Reflection: In embedded application, why would you write application output to a file instead of just printf it to terminal?
