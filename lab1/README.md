@@ -42,11 +42,11 @@ The installed VM is naturally the same for all students, but will want to use yo
 ```
 - Create keypair for the VM:
 ```bash
-   student@student-VirtualBox:~$ ssh-keygen -t rsa -b 2048 -f /home/student/id_rsa -q -N ""
+   student@student-VirtualBox:~$ ssh-keygen -t rsa -b 2048 -f /home/student/.ssh/id_rsa -q -N ""
 ```
 - Copy your public key to your forked project in TUAS gitlab: print your public key on terminal, copy content and paste to TUAS gitlab in browser (top right corner, "Edit profile / SSH Keys").
 ```bash
-   student@student-VirtualBox:~$ cat /home/student/id_rsa.pub
+   student@student-VirtualBox:~$ cat /home/student/.ssh/id_rsa.pub
 ```
 - (Change passwd for student on VM)
 
