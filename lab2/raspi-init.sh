@@ -146,14 +146,6 @@ if [ -n "$pi_auth_pass" ]; then
 fi
 
 #
-# Install gdbserver on raspi
-#
-printf "Install gdbserver to raspi ... "
-scp -q ~/opt/x-tools/armv6-rpi-linux-gnueabihf/armv6-rpi-linux-gnueabihf/debug-root/usr/bin/gdbserver $username@$ipaddr:~
-ssh $username@$ipaddr sudo mv gdbserver /usr/local/bin
-printf "OK\n"
-
-#
 # Create raspi shortcut for ssh
 #
 printf "Create ssh config for $pi_hostname ... "
@@ -170,10 +162,32 @@ EOF
     printf "OK, new config created.\n"
 fi
 
+
+
+#
+# Install stdlibc++ (required by gdbserver)
+#
+printf "Install stdlibc++  to raspi ... "
+scp -q ~/opt/x-tools/armv6-rpi-linux-gnueabihf/armv6-rpi-linux-gnueabihf/sysroot/lib/libstdc++.so.6.0.30  $username@$ipaddr:~
+ssh $username@$ipaddr bash << 'EOF'
+  sudo mkdir -p /usr/local/lib/arm-linux-gnueabihf
+  sudo cp libstdc++.so.6.0.30 /usr/local/lib/arm-linux-gnueabihf/
+  sudo rm libstdc++.so.6.0.30
+  sudo ldconfig
+EOF
+printf "OK\n"
+#
+# Install gdbserver on raspi
+#
+printf "Install gdbserver to raspi ... "
+scp -q ~/opt/x-tools/armv6-rpi-linux-gnueabihf/armv6-rpi-linux-gnueabihf/debug-root/usr/bin/gdbserver $username@$ipaddr:~
+ssh $username@$ipaddr sudo mv gdbserver /usr/local/bin
+printf "OK\n"
+
 #
 # Update pi
 #
-printf "Update pi ... "
+printf "Update pi ... This may take some time. Ignore dpkg warnings!\n "
 # get rid of locale warnings
 ssh $username@$ipaddr "sudo bash -c 'cat >> /etc/environment << EOF
 LC_ALL=en_GB.UTF-8
@@ -192,6 +206,6 @@ printf "OK\n"
 # Update VM cross chroot
 #
 printf "Update cross rootfs on VM ... "
-sudo sbuild-apt rpizero-bullseye-armhf apt-get update >> sbuild-apt.log
-sudo sbuild-apt rpizero-bullseye-armhf apt-get upgrade >> sbuild-apt.log
+sudo sbuild-apt rpizero-bullseye-armhf apt-get update >> ~/sbuild-apt.log
+sudo sbuild-apt rpizero-bullseye-armhf apt-get upgrade >> ~/sbuild-apt.log
 printf "OK\n"
