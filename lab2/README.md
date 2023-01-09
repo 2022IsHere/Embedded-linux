@@ -11,7 +11,7 @@ Connect raspi to network and boot it. If you are in same LAN network, mDNS does 
 
 For convenient remote debugging, you will want to set up ssh keys, configure ssh shortname for the connection, install gdbserver to raspi, and synchronize raspi libraries to be similar to development libraries on this VM.
 
-For your eternal happiness this all can be achieved using a script in home folder:
+For your eternal happiness this all can be achieved using a script in this lab2 folder (there is limited functionality version delivered with VM in student home folder, you should remove that to avoid problems `rm /home/student/raspi-init.sh`):
 ```
 raspi-init.sh -t target -u username -p passwd
 ```
