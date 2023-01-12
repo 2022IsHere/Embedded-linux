@@ -33,9 +33,14 @@ You would need to set up make or CMake project for this. Easiest way to go is to
 ## Cross-build C projects
 
 There are no prebuilt templates for specific cross-development setups like our arm-raspi lab setup. The easiest way to proceed is to 
-- copy .vscode folder contents from existing project (lab2 for example) to a new project 
+- copy .vscode folder and contents from existing project (lab2 for example) to a new project 
+- copy cmake folder and contents from existing project (lab2 for example) to a new project
+- copy CMakeLists.txt file from existing project (lab2 for example) to a new project 
 - edit CMakeLists.txt so that source files and library dependencies match your new project 
-- Shift-Ctrl-P: "CMake: Delete Cache and Reconfigure" to rebuild CMake cache
-You should now be able to do cross-builds and remote debugging with the new project.
+- Shift-Ctrl-P: "CMake: Delete Cache and Reconfigure" to rebuild CMake cache. Choose kit (toolchain) "GCC 12.1.0 armv6-rpi-linux-gnueabihf"
+You should now be able to do cross-builds and remote debugging with the new project.  
+Note that key shortcut are different for CMake projects:  
+`F7` to build (especially note that Shift-Ctrl-B builds with wrong parameters... annoying)  
+`F5` to debug
 
 
