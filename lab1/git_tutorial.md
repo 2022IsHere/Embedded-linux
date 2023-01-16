@@ -52,7 +52,11 @@ https://docs.gitlab.com/ee/tutorials/
 
 You have two user interfaces to your repository:
 - In your local repository you can edit files (using command-line nano or GUI vscode), commit and push. This is the environment where you develop; any changes you make, you can test them before commit.
-- In TUAS gitlab web interface you can also edit any files. However it does not make sense to make code changes here - this would lead to commits not compiled nor tested. On the other hand this would the perfect place to write documentation (markdown files) because the web interface shows previews from those as well (and gitlab markdown has some extensions that don't render that well in vscode etc).
+- In TUAS gitlab web interface you can also edit any files. However it does not make sense to make code changes here - this would lead to commits not compiled nor tested. On the other hand this would the perfect place to write documentation (markdown files) because the web interface shows previews from those as well (and gitlab markdown has some extensions that don't render that well in vscode etc).  
+
+**What happens when the teacher changes the lab instructions in the git, but you have your own forked repository?** Yes, you will not get the updates. To solve this, you need to add another remote repository to your project: https://digitaldrummerj.me/git-sync-fork-to-master/  
+Just change the https-formed addresses to git@-style addresses and replace "master" with "main"
+
 
 In general,
 - commit often
