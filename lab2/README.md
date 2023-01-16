@@ -39,8 +39,8 @@ You can run the raspi-init script multiple times (in case you want to adjust you
 ## vscode usage
 Navigate to hello folder and start vscode:
 ```
-student@student-VirtualBox:~$ cd projects/hello/
-student@student-VirtualBox:~/projects/hello$ code .
+student@student-VirtualBox:~$ cd embeddedxxx/lab2/
+student@student-VirtualBox:~/embeddedxxx/lab2$ code .
 ```
 - Open hello.c to editor (select explorer on top-left icon and click hello.c)
 - Press 'F5' key to cross-build the C code to armv6 binary, to copy the file to raspi, and to start debugger process on raspi. 
