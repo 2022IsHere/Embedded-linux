@@ -44,7 +44,10 @@ student@student-VirtualBox:~/embeddedxxx/lab2$ code .
 ```
 - Open hello.c to editor (select explorer on top-left icon and click hello.c)
 - Press 'F5' key to cross-build the C code to armv6 binary, to copy the file to raspi, and to start debugger process on raspi. 
-A successful debug session will result in code stopped on first code line and having full visibility to all variables in code. You can now single step through the code.
+A successful debug session will result in code stopped on first code line and having full visibility to all variables in code. You can now single step through the code.  
+
+Possible problem case:  
+- Wrong or undefined "kit" (toolchain). Click around the middle of blue bar in screen bottom and choose toolchain "GCC 12.1.0 armv6-rpi-linux-gnueabihf". Also see general instructions for new vscode projects [here](howto-create-vscode-projects.md)
 
 An unwanted feature of this setup is that there is no way to see the stdout stream. This is not really a problem, since we are focused in developing embedded devices where there are no operators looking at displays; instead we want to have log files for later inspection. So this example demonstrates log file output. You can open a ssh terminal to rpi and view the output file using command `tail -f lab2.out`. The log file does not update in real-time, since the output buffer is not flushed to file after every write. You could add flush commands to C code make this happen.   
 
