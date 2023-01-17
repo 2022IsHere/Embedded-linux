@@ -98,8 +98,8 @@ student@student-VirtualBox:~/paho.mqtt.c$ ssh rpi 'sudo cp libpaho* /usr/local/l
 
 ### Create MQTT client application for raspi
 
-1. Copy your C source to labs/lab7/mqtt-raspi/mqtt-client.c (edit the file: change broker address from localhost to VM IP, and change payload message too)
-2. Revisit instructions [on this page](howto-create-vscode-projects.md)): copy lab2 configs and rebuild CMake cache. Add paho-mqtt3c library to CMakeLists.txt:
+1. To create a new cross-build project into {labs}/lab7/mqtt-raspi, revisit instructions [on this page](../lab2/howto-create-vscode-projects.md)): copy lab2 configs and rebuild CMake cache. Add paho-mqtt3c library to CMakeLists.txt:
+2. Copy your C source to labs/lab7/mqtt-raspi/mqtt-client.c (edit the file: change broker address from localhost to VM IP, and change payload message too)
 ```
 include_directories(/var/lib/schroot/chroots/rpizero-bullseye-armhf/usr/local/include/)
 target_link_libraries(lab7 /var/lib/schroot/chroots/rpizero-bullseye-armhf/usr/local/lib/libpaho-mqtt3c.so )
