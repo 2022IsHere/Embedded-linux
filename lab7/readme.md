@@ -38,7 +38,7 @@ Many linux libraries are makefile based and they support the basic commands
 `(sudo) make install` copies the built executables into system library folders (so that running applications can find them)  
 >>>
 
-**NOTE1** I recommend you to clone the paho repository into your home folder. It is possible to clone it under labs/lab7 as well and add the paho folder to .gitignore (and maybe use git submodules feature to manage all), but don't.  
+**NOTE1** I recommend you to clone the paho repository into your home folder. It is possible to clone it under {repo}/lab7 as well and add the paho folder to .gitignore (and maybe use git submodules feature to manage all), but don't.  
 **NOTE2** If compilation step fails with missing include file, it means you need to install dependent library. For most linux libraries, there are two related install packages. The library package itself contains executable libraries. The dev-package contains include files as well, making it possible to build other programs that depend on installed library. If `ssl.h` is missing, then after some googling you should find out that the VM ubuntu system is missing `libssl-dev` package. Sudo apt install it.  
 
 After successful build you can check that the library included cli utility runs OK. Just send a test message and see that your mosquitto subscriber gets it:
@@ -47,11 +47,11 @@ paho_c_pub -c localhost -t /home/sensors/temp/kitchen -m "Hello from x86 paho.mq
 ```
 Successful publish operation proves our native compilation was successful, so we have the courage to start tinkering with example source code.
 
-1. Create two project folders under labs/lab7:  
-labs/lab7/mqtt-vm  
-labs/lab7/mqtt-raspi
-2. Copy the example code from paho web page bottom as it is into `labs/lab7/mqtt-vm/mqtt-client.c`` 
-3. Set up native C project into labs/lab7/mqtt-vm/ (see instructions [on this page](howto-create-vscode-projects.md)).
+1. Create two project folders under {repo}/lab7:  
+{repo}/lab7/mqtt-vm  
+{repo}/lab7/mqtt-raspi
+2. Copy the example code from paho web page bottom as it is into `{repo}/lab7/mqtt-vm/mqtt-client.c`` 
+3. Set up native C project into {repo}/lab7/mqtt-vm/ (see instructions [on this page](../lab2/howto-create-vscode-projects.md)).
 4. Select mqtt-client.c as active tab and build (Shift-Ctrl-B). The build should fail because paho libraries are not linked to the project.
 5. Edit .vscode/tasks.json to add argument `"-lpaho-mqtt3c"` for the build (append it, i.e. insert as last element in argument list).
 
@@ -98,8 +98,8 @@ student@student-VirtualBox:~/paho.mqtt.c$ ssh rpi 'sudo cp libpaho* /usr/local/l
 
 ### Create MQTT client application for raspi
 
-1. To create a new cross-build project into {labs}/lab7/mqtt-raspi, revisit instructions [on this page](../lab2/howto-create-vscode-projects.md)): copy lab2 configs and rebuild CMake cache. Add paho-mqtt3c library to CMakeLists.txt:
-2. Copy your C source to labs/lab7/mqtt-raspi/mqtt-client.c (edit the file: change broker address from localhost to VM IP, and change payload message too)
+1. To create a new cross-build project into {repo}/lab7/mqtt-raspi, revisit instructions [on this page](../lab2/howto-create-vscode-projects.md)): copy lab2 configs and rebuild CMake cache. Add paho-mqtt3c library to CMakeLists.txt:
+2. Copy your C source to {repo}/lab7/mqtt-raspi/mqtt-client.c (edit the file: change broker address from localhost to VM IP, and change payload message too)
 ```
 include_directories(/var/lib/schroot/chroots/rpizero-bullseye-armhf/usr/local/include/)
 target_link_libraries(lab7 /var/lib/schroot/chroots/rpizero-bullseye-armhf/usr/local/lib/libpaho-mqtt3c.so )
