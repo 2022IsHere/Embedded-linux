@@ -51,7 +51,7 @@ fi
 # See output in raspi /var/log/auth.log to see which auth method was accepted.
 #
 printf "Checking pi ssh login... "
-pi_auth_log=$(sshpass -p $passwd ssh -o "StrictHostKeyChecking no" $username@$ipaddr 'cat /var/log/auth.log | grep "Accepted" | tail -1')
+pi_auth_log=$(sshpass -p $passwd ssh -o "StrictHostKeyChecking no" $username@$ipaddr 'cat /var/log/auth.log | grep -a "Accepted" | tail -1')
 if test "$?" != "0"; then
     echo -e "${RED}Error: failed to login to raspi!!!"
     echo "Check username and passwd."
