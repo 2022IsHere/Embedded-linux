@@ -36,11 +36,34 @@ From userspace, the kernel PWM driver can be controlled via sysfs as above (in C
 To Do:
 - To initialize the hardware PWM programmatically, replicate the setup operations from command line example above
 - Create a timer service that keeps triggering every 100 milliseconds
-- Create a S-curve table
+- Create S-curve motion profile for the table. You can start with the S-curve table below. Note that this is only 1-way movement from 0-100%, you must return to zero as well to be able to run the table data cyclically. You need to scale the percentage points to nanoseconds for servfo motor. Good starting point is 0% == 1.2ms and 100% == 1.8ms duty time. Looks like Excel work.
 - In handler, read next profile position from a table and write it to PWM. When reaching end of table, continue from beginning.
-- Create S-curve motion profile for the table
-- Adjust timer rate (initially 100 msec) faster or slower, until servo movement feels (and sounds?) good (naturally, if you had mechanical loads connected to servo, the setting would be different)
+- Adjust timer rate (initially 100 msec) faster or slower, until servo movement feels (and sounds?) good (naturally, if you had mechanical loads connected to servo, the setting would be different). It does not make sense to change duty time setting faster than every 20ms, because the output pulses aren't generated any faster. Making the steps too slow makes every step separate thus losing the benefits of S-curve.
 
-
+```
+0,0 %
+0,4 %
+1,3 %
+3,0 %
+5,6 %
+9,3 %
+14,2 %
+20,3 %
+27,0 %
+34,3 %
+41,9 %
+49,7 %
+57,6 %
+65,2 %
+72,5 %
+79,2 %
+85,2 %
+90,3 %
+94,3 %
+97,0 %
+98,6 %
+99,6 %
+100,0 %
+```
 
 
