@@ -76,8 +76,13 @@ and checking with oscilloscope that there is specified output, and that it is ji
 
 ### Exercise 3: kernel timers with HW PWM
 
-From userspace, the kernel PWM driver can be controlled via sysfs as above (in C code you would use fopen(), write() etc commands). In order to have smooth servo movement, you need to change the PWM setting at constant rate so that the servo follows S-curve minimizing abrupt changes in acceleration. There is a detailed explanation in https://www.pmdcorp.com/resources/type/articles/get/mathematics-of-motion-control-profiles-article  
-
+From userspace, the kernel PWM driver can be controlled via sysfs as above (in C code you will use fopen(), write() etc commands). In order to have smooth servo motion, you need to change the PWM setting from a precalculated table at constant rate so that the servo follows **S-curve** minimizing abrupt changes in acceleration.  For a deep dive, there is a very detailed explanation in https://www.pmdcorp.com/resources/type/articles/get/mathematics-of-motion-control-profiles-article  
+To Do:
+- Initialize hardawre PWM programmatically (replicating the operations from command line example above)
+- Create a timer service that keeps triggering every 100 milliseconds
+- In handler, read next profile position from a table and write it to PWM. When reaching end of table, continue from beginning.
+- Create S-curve motion profile for the table
+- Adjust timer rate (initially 100 msec) faster or slower, until servo movement feels (and sounds?) good (naturally, if you had mechanical loads connected to servo, the setting would be different)
 
 
 
