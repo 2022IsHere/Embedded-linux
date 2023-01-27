@@ -1,5 +1,5 @@
 
-## 4.1 Cron
+## 4.0 Cron
 
 Cron is the traditional tool for scheduling program execution to 1 minute resolution. Every user in the system has personal cron table (crontab), The user `pi` can list or edit cron table using commands
 ```
@@ -12,7 +12,7 @@ The cron table line syntax can get a bit complex. Each line in table can trigger
 ```
 would run lab2 program every day at 04:05. For more details and examples see for example https://linuxhint.com/cron_jobs_complete_beginners_tutorial/ and https://crontab.guru/
 
-### Exercise 4.1: cron
+### Exercise 4.0: cron
 
 Lets assume your task is to control a water pump that removes the excess water from building basement. You need to check the level switch every 30 minutes, and if level switch is on you need to run the pump for 10 minutes. To make it simple to experiment and modify the start/stop rules, you decide to develop cron rules to turn on the pump and turn off the pump (instead of writing the complete application in C for example).
 
