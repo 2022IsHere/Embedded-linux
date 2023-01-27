@@ -11,6 +11,6 @@ Different software and hardware architectures vary in timing accuracy:
 - Linux and other generic OS systems provide standardised platform for multiple independent applications and runtime command-line/graphical interface so that user can change running programs. To provide that functionality there are multiple system processes and threads running. Application CPU time is interleaved with other processes making accurate timing difficult. Standard Linux can achieve 100us-10ms timing accuracy on typical platforms (depending on system load).
 
 This time lab contains three subtopics:  
-- Lab 4.0 explores cron service in linux
-- Lab 4.1 applies kernel timers to generate software PWM output
-- Lab 4.2 presents the jitter-free RasPi HW PWM, which is then applied for servo control
+- [Lab 4.0](4.0) explores cron service in linux
+- [Lab 4.1](4.1) applies kernel timers to generate software PWM output
+- [Lab 4.2](4.2) presents the jitter-free RasPi HW PWM, which is then applied for servo control
