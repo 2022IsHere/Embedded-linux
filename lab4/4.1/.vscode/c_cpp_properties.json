@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/var/lib/schroot/chroots/rpizero-bullseye-armhf/usr/include/**"
+            ],
+            "compilerArgs": [
+				"-mcpu=cortex-m4",
+				"-mthumb",
+				"-mfloat-abi=hard"
+            ],
+            "defines": [],
+            "compilerPath": "/home/student/opt/x-tools/armv6-rpi-linux-gnueabihf/bin/armv6-rpi-linux-gnueabihf-gcc",
+            "cStandard": "gnu17",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "gcc-arm",
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json",
+            "configurationProvider": "ms-vscode.cmake-tools"
+        }
+    ],
+    "version": 4
+}
