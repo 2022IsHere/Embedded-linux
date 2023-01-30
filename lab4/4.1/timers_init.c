@@ -8,6 +8,7 @@
 
 /* Timer initialization routines and handlers */
 
+#include <stdio.h>
 #include <signal.h>
 #include <sys/time.h>
 #include <time.h>
