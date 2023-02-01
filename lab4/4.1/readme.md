@@ -19,6 +19,8 @@ Fix that by first removing the broken link (the upper one) and create a new symb
 
 ln -s <source_file> <symbolic_link>
 
+Under lab 4.1 you will find a script "fix_broken_lib_links.sh", which will correct (hopefully) all the broken links. 
+
 ```
 
 ### Exercise 4.1: kernel timers
