@@ -1,6 +1,6 @@
-# Lab 8 - Set up CGI app server
+# Lab 9 - Set up CGI app server
 
-This lab requires you to have set up lighttpd server on raspi as instructed in Lab 7.
+This lab requires you to have set up lighttpd server on raspi as instructed in Lab 8.
 
 ## Step 1: Set up CGI for lighttpd
 
@@ -37,7 +37,7 @@ QUESTION #1: Take a screenshot of browser that shows your successful request ser
 So, every CGI request will run the binary in fresh new shell, and all parameters are transmitted via shell environment variables. How can we develop cgi apps efficiently?
 1. We need to know exactly what kind of parameters each request will have
 2. We can then replicate any request content in env vars 
-    - in Eclipse, by copying env vars to debug setup  ![Eclipse Debug setup](/images/Eclipse-debug-envvars.png "Eclipse Debug setup")
+    - in vscode, you can edit launch configuration top include environment vars as in https://stackoverflow.com/questions/29971572/how-do-i-add-environment-variables-to-launch-json-in-vscode
     - on CLI, by prepending env vars to executable:
 ```
 pi@raspberrypi:~ $ DOCUMENT_ROOT=/usr/lib/cgi-bin/ REQUEST_METHOD=GET SERVER_PROTOCOL=HTTP/1.1 ./mycgitest.cgi
@@ -47,50 +47,27 @@ So we need to find out what are the env vars provided by CGI interface. Fortunat
 https://www.lemoda.net/c/cgi-getenv/env-cgi.c
 
 Try it out:
-1. Create eclipse C cross-compile project:
-    - "C/C++ project" , "C Managed Build", "Hello World arm C project"
-         - for "Linker semi-hosting", erase the line completely
-    - when created, check in project properties that target architecture is "Cortex-a72" as for RasPi4 ("C/C++ build" / "Settings")
-2. Replace main.c content with contents of file link above, make sure your project has Linaro toolchain ("Project properties"/"C/C++ Build"/"Settings" and there tab "Toolchains") & build project. 
-```
-3:43:41 **** Build of configuration Debug for project cgi-demo ****
-make all 
-Building file: ../src/main.c
-Invoking: GNU Arm Cross C Compiler
-arm-linux-gnueabihf-gcc -mcpu=cortex-a72 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -std=gnu11 -MMD -MP -MF"src/main.d" -MT"src/main.o" -c -o "src/main.o" "../src/main.c"
-Finished building: ../src/main.c
- 
-Building target: cgi-demo.elf
-Invoking: GNU Arm Cross C Linker
-arm-linux-gnueabihf-gcc -mcpu=cortex-a72 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -Xlinker --gc-sections -Wl,-Map,"cgi-demo.map" -o "cgi-demo.elf"  ./src/main.o   
-Finished building target: cgi-demo.elf
-```
-
-3. Set up a new debug configuration
-    - target: your raspi
-    - application is the binary you built in step 2
-    - target binary should be `/usr/lib/cgi-bin/env-cgi.cgi`
-4. You should be able to edit and debug the code normally. Additionally, it is served by lighttpd. **Note that these two are two different processes: debugger runs one instance of yourapp; and CGI interface triggers another instance. So you cannot set debugger breakpoints to the instance that was triggered by web request.**  And you shouldn't need to, because the whole interface is defined by env vars and stdout. Those you can test separately. Let's solve that in next steps.
-5. In browser, add query part to url: for example https://xx.xx.xx.xx/cgi-bin/env-cgi.cgi?motor=on&light=off 
-6. Next, modify the c code so that you can directly copy-paste resulting browser page content into eclipse debug settings / environment. (Each line has `varname=value\n` format)
-7. Run the code in debugger again, using simulated environment. You now have easy access to test different query formats and query parsing with variables shown and braekpoints available. Keep a text copy of the environment for use in other projects.
-8. Create a C code that detects motor=on/off in query part, and either controls GPIO output accordingly, or prints an event line to a log file (in case you don't have GPIO hardware).   
-(In a more realistic case you would parse the query part to handle multiple commands. **This has security implications** if you do not take care of buffer overflows, payload sanitation etc. So it is highly recommended to choose tested parser code, maybe https://github.com/jacketizer/libyuarel).   
+1. Create vscode C cross-compile project in subfolder lab9/9.2
+2. Replace main.c content with contents of file link above & build project. 
+3. You should be able to edit and debug the code normally. Additionally, it is served by lighttpd. **Note that these two are two different processes: debugger runs one instance of yourapp; and CGI interface triggers another instance. So you cannot set debugger breakpoints to the instance that was triggered by web request.**  And you shouldn't need to, because the whole interface is defined by env vars and stdout. Those you can test separately. Let's solve that in next steps.
+4. In browser, add query part to url, using any arbitrary parameters: for example https://xx.xx.xx.xx/cgi-bin/env-cgi.cgi?motor=on&light=off You should see those vars in output text.
+5. Create a C code that detects motor=on/off in query part, and either controls GPIO output accordingly, or prints an event line to a log file (in case you don't have GPIO hardware).   
+(In a more realistic case you would parse the query part to handle multiple commands. **This has security implications** if you do not take care of buffer overflows, payload sanitation etc. So it is highly recommended to choose tested parser code, maybe https://github.com/jacketizer/libyuarel). Here, remember we are developing interface for a single local user.
 
 QUESTION #2: Add snippet of your detection code to the document (5-10 lines max.). 
 
 ## Step 3: Detect events from server
 
-Standard http traffic is strictly client-server. Client sends request, and server responds. There is no way server could take initiative and send data to client. To solve this there are standard solutions:
+Standard http traffic is strictly client to server. Client sends request, and server responds. There is no way server could take initiative and send data to client. To solve this there are standard solutions:
 1. Polling. Client asks regularly (like every second) status from server. Cons are that there is lots of unnecessary traffic, and event detection can be up to one polling interval unit late.
 2. Long polling. Clinet sends request, and servers starts responding immediately, but keeps holding the end of transmission "Hoooo...ooold on", up to several minutes. When there is new data, server can immediately send rest of response message. When client gets something, it sends a new request and long poll gets repeated.
 3. Web sockets are TCP sockets tunneled on http traffic, and they are basically bidirectional.
 
 In this step you'll set up standard polling to get data from the server.
-1. Create Eclipse project CGI for a code that responds with current time. Create CGI project as you did in step 7.  Get the c code `time.c` from this repo. Build, test and deploy to /usr/lib/cgi-bin folder. Try with browser.
+1. Create vscode project in subfolder lab9/9.3 for a code that responds with current time. Create CGI project as you did in step 7.  Get the c code `time.c` from this repo. Build, test and deploy to /usr/lib/cgi-bin folder. Try with browser.
 2. The polling takes place in browser, so you need to set up a javascript snippet on your statically served web page. Get the html from this repo `poll-demo.html` and copy it to your web server static content folder. Open the page with browser and verify that you keep getting new data every second.  
 
-Now using CGI means there is a new process created every second. In raspi, check CPU load (use `top` fore example). Ajust the polling rate until raspi load is 50%. What is the polling interval then?  
+Now using CGI means there is a new process created every second. In raspi, check CPU load (use `top` fore example). Adjust the polling rate until raspi load is 50%. What is the polling interval then?  
 
 QUESTION #3: Polling interval for 50% load as milliseconds.
 
