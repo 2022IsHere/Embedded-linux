@@ -1,4 +1,4 @@
-# Lab 7. Setting up an embedded web server on RasPi
+# Lab 8. Setting up an embedded web server on RasPi
 
 In many cases the embedded device does not have any user interface at all. However, the system needs to provide some kind of access for the local user, and in many cases the local user has no skills for command-line interface and ssh, but needs a simplified graphical user interface.  
 So in these cases the system is not intended to connect to internet for remote operation, but only provide access for local user. Remote operation would require stricter security and support for multiple simultanous users.  
@@ -25,7 +25,7 @@ Status should contain states <b>loaded, enabled, running</b>
 You should be able to see the default placeholder page with browser at raspi IP:  http://xx.xx.xx.xx
 Note that this must be http, so if browser forces to use https there will be no connection.
 
-QUESTION #1: From the VM, get default page content to file using ``curl http://x.x.x.x > result1.html``, put it into lab7/results repo path, commit and push. 
+QUESTION #1: From the VM, get default page content to file using ``curl http://x.x.x.x > result1.html``, put it into lab8/results repo path, commit and push. 
 
 If you have problems here, jump to [troubleshooting](#troubleshooting)
 
@@ -50,7 +50,7 @@ pi@raspberrypi:~ $ sudo systemctl status lighttpd.service
 pi@raspberrypi:~ $ sudo tail -20 /var/log/lighttpd/error.log
 pi@raspberrypi:~ $ sudo tail -20 /var/log/syslog
 ```
-QUESTION #2: Where did you find information on which file and line your error was? Get the relevant error message to file result2, put it into lab7/results repo path, commit and push.
+QUESTION #2: Where did you find information on which file and line your error was? Get the relevant error message to file result2, put it into lab8/results repo path, commit and push.
 
 Finally, remove the offending line from config, save file and start service. Check that it runs normally again. (Hint: force-reload requires the service is running, so it may fail. You need to <b>start</b> the service.
 > There is a nice summary on systemctl features: https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units (and of course chapter 18.10 in NDG Linux course).
@@ -100,7 +100,7 @@ and reload the configuration. The verbose logs will go to error.log file (...eve
 ...
 ```
 
-QUESTION #3: Copypaste a snippet of log output showing verbose content to file lab7/result3.log, commit and push.
+QUESTION #3: Copypaste a snippet of log output showing verbose content to file lab8/result3.log, commit and push.
 
 ## Step 4: Configuring SSL
 
@@ -137,7 +137,7 @@ $SERVER["socket"] == ":443" {
 Reload config and check that you can get https connection (you'll need to navigate past "insecure certificate" warnings in browser).  
 For more options, see https://redmine.lighttpd.net/projects/1/wiki/HowToSimpleSSL
 
-QUESTION #4:  From the VM, get default page content to file using ``curl https://x.x.x.x > result4.html``, put it into lab7/results repo path, commit and push. 
+QUESTION #4:  From the VM, get default page content to file using ``curl https://x.x.x.x > result4.html``, put it into lab8/results repo path, commit and push. 
 
 ## Step 5: Set up your own static pages
 
@@ -149,7 +149,7 @@ To Do:
   - in document root create subfolder "orig", move the existing placeholder file there and check that browser finds it https://xx.xx.xx.xx/orig (and 403 from doc root)
   - create new index.html file with content X, check with browser. For content, see HTML tutorials in https://www.w3schools.com/html/html_examples.asp
 
-QUESTION #5: From the VM, get default page content to file using ``curl https://x.x.x.x/orig > result5.html``, put it into lab7/results repo path, commit and push. 
+QUESTION #5: From the VM, get default page content to file using ``curl https://x.x.x.x/orig > result5.html``, put it into lab8/results repo path, commit and push. 
 
 
 ## Troubleshooting
