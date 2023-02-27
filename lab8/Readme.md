@@ -1,4 +1,9 @@
-# Lab 7. Setting up web server on RasPi
+# Lab 7. Setting up an embedded web server on RasPi
+
+In many cases the embedded device does not have any user interface at all. However, the system needs to provide some kind of access for the local user, and in many cases the local user has no skills for command-line interface and ssh, but needs a simplified graphical user interface.  
+So in these cases the system is not intended to connect to internet for remote operation, but only provide access for local user. Remote operation would require stricter security and support for multiple simultanous users.  
+
+In this lab you'll set up web server for a single local user.  
 
 ## Step 1: Setting up a web server on raspi
 
