@@ -9,13 +9,17 @@ In this lab you'll set up web server for a single local user.
 
 ## Step 1: Setting up a web server on raspi
 
-As always, you'll want to start with an up-to-date RasPi system. Open up a ssh connection
+As always, you'll want to start with an up-to-date RasPi system. Open up a ssh connection, update (rememeber to keep development environment up-to-date as well!)
 ```
 pi@raspberrypi:~ $ sudo apt update
 pi@raspberrypi:~ $ sudo apt upgrade
 pi@raspberrypi:~ $ sudo apt install lighttpd
+
+student@student-VirtualBox:~$ sudo sbuild-apt rpizero-bullseye-armhf apt-get update
+student@student-VirtualBox:~$ sudo sbuild-apt rpizero-bullseye-armhf apt-get upgrade
+student@student-VirtualBox:~$ sudo sbuild-apt rpizero-bullseye-armhf apt-get install gpiod
+
 ```
-In order to keep cross-development environment synced, you should replicate this on VM debug environment. Check Lab1 instructions for this.
 
 The installation will get everything done: install necessary files with basic configuration, start the service, and enable the service so that it will start after next reboot as well.
 To verify this 
@@ -24,10 +28,10 @@ pi@raspberrypi:~ $ sudo systemctl status lighttpd.service
 ```
 Status should contain states <b>loaded, enabled, running</b>
 
-You should be able to see the default placeholder page with browser at raspi IP:  http://xx.xx.xx.xx
+You should be able to see the default placeholder page with browser at your raspi IP:  http://xx.xx.xx.xx
 Note that this must be http, so if browser forces to use https there will be no connection.
 
-QUESTION #1: From the VM, get default page content to file using ``curl http://x.x.x.x > result1.html``, put it into lab8/results repo path, commit and push. 
+QUESTION 1: From the VM, get default page content to file using ``curl http://x.x.x.x > placeholderpage.html``, put it into lab8/results repo path, commit and push. Note that the placeholder page contains relevant information for setting up the service, so you might want to look at it later as well.
 
 If you have problems here, jump to [troubleshooting](#troubleshooting)
 
@@ -46,13 +50,13 @@ save file, and reload service with new config:
 ```
 pi@raspberrypi:~ $ sudo service lighttpd force-reload
 ```
-Well, where is our error message? Try checking out following things:
+Well, where is our error message? Try checking out following files, and study what kind messages each contains:
 ```
 pi@raspberrypi:~ $ sudo systemctl status lighttpd.service
 pi@raspberrypi:~ $ sudo tail -20 /var/log/lighttpd/error.log
 pi@raspberrypi:~ $ sudo tail -20 /var/log/syslog
 ```
-QUESTION #2: Where did you find information on which file and line your error was? Get the relevant error message to file result2, put it into lab8/results repo path, commit and push.
+QUESTION 2: Where did you find information on which file and line your error was? Get the relevant error message to file errors.txt, put it into lab8/results repo path, commit and push.
 
 Finally, remove the offending line from config, save file and start service. Check that it runs normally again. (Hint: force-reload requires the service is running, so it may fail. You need to <b>start</b> the service.
 > There is a nice summary on systemctl features: https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units (and of course chapter 18.10 in NDG Linux course).
@@ -71,7 +75,11 @@ pi@raspberrypi:~ $ sudo lighty-enable-mod accesslog
 pi@raspberrypi:~ $ sudo service lighttpd force-reload
 pi@raspberrypi:~ $ sudo systemctl status lighttpd.service
 ```
-Next you need to find out where is that access log. You should start with reading the main config file in (Raspi) /etc/lighttpd/lighttpd.conf and also reading through the included config files. Then,
+Next you need to find out where is that access log. You should start with reading the main config file in (Raspi) /etc/lighttpd/lighttpd.conf and also reading through the included config files. 
+
+> In a Linux system, the typical configuration setup has one main configuration file and a subfolder of additional configurations (often named servicename.d), from where all additional configurations are appended in alphabetical order. Additional configs often use numbered names to make the order of appends more readable.
+
+Then,
 ```
 pi@raspberrypi:~ $ sudo tail -f [path to access file]
 ```
@@ -102,7 +110,7 @@ and reload the configuration. The verbose logs will go to error.log file (...eve
 ...
 ```
 
-QUESTION #3: Copypaste a snippet of log output showing verbose content to file lab8/result3.log, commit and push.
+QUESTION 3: Copypaste a snippet of log output showing verbose content to file lab8/accesslog.log, commit and push.
 
 ## Step 4: Configuring SSL
 
@@ -139,7 +147,7 @@ $SERVER["socket"] == ":443" {
 Reload config and check that you can get https connection (you'll need to navigate past "insecure certificate" warnings in browser).  
 For more options, see https://redmine.lighttpd.net/projects/1/wiki/HowToSimpleSSL
 
-QUESTION #4:  From the VM, get default page content to file using ``curl https://x.x.x.x > result4.html``, put it into lab8/results repo path, commit and push. 
+QUESTION 4:  From the VM, get default page content to file using ``curl https://x.x.x.x > httpspage.html``, put it into lab8/results repo path, commit and push. 
 
 ## Step 5: Set up your own static pages
 
@@ -151,7 +159,7 @@ To Do:
   - in document root create subfolder "orig", move the existing placeholder file there and check that browser finds it https://xx.xx.xx.xx/orig (and 403 from doc root)
   - create new index.html file with content X, check with browser. For content, see HTML tutorials in https://www.w3schools.com/html/html_examples.asp
 
-QUESTION #5: From the VM, get default page content to file using ``curl https://x.x.x.x/orig > result5.html``, put it into lab8/results repo path, commit and push. 
+QUESTION 5: From the VM, get default page content to file using ``curl https://x.x.x.x/orig > mypage.html``, put it into lab8/results repo path, commit and push. 
 
 
 ## Troubleshooting
