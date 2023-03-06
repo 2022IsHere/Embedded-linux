@@ -29,7 +29,7 @@ pi@raspberrypi:~ $ sudo systemctl status lighttpd.service
 Status should contain states <b>loaded, enabled, running</b>
 
 You should be able to see the default placeholder page with browser at your raspi IP:  http://xx.xx.xx.xx
-Note that this must be http, so if browser forces to use https there will be no connection.
+Note that this must be http, so if browser forces to use https there will be no connection. If you get 403 response, it means that index.html placeholder page is missing. It should be in folder /var/www/html but it seems that installation package puts it somewhere in /usr/share tree (locate the index.html file using find command, and copy the file to correct location). 
 
 QUESTION 1: From the VM, get default page content to file using ``curl http://x.x.x.x > placeholderpage.html``, put it into lab8/results repo path, commit and push. Note that the placeholder page contains relevant information for setting up the service, so you might want to look at it later as well.
 
