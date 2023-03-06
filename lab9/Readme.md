@@ -36,6 +36,8 @@ QUESTION 1: Get your python page content to a file in VM using `curl` and and re
 
 You can now copy your ledon / ledoff binaries (from lab4/4.0) to cgi-bin folder. Remember to rename them with suffix .cgi to comply with your cgi configuration. Test.
 
+**NOTE** that in order to be able to play with gpio, you need to be member of gpio group. But, who is 'you' in this case? Not the user 'pi', but user 'www-data'. If you add group memberships to any user, the new settings apply only to processes started after the update --> you need to restart lighttpd process as well, so that the cgi programs can inherit gpio membership as well. 
+
 ## Step 3: Develop CGI programs using C
 
 In a more realistic setup you would want to give parameters for the binary executable. In the led on/off case you might want have more generic interface for any GPIO pin and operate it with http commands like `https://xx.xx.xx.xx/cgi-bin/set-gpio.gci?pin=12&state=1`
