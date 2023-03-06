@@ -34,7 +34,7 @@ and checking with oscilloscope that there is specified output, and that it is ji
 From userspace, the kernel PWM driver can be controlled via sysfs as above (in C code you will use fopen(), write() etc commands). In order to have smooth servo motion, you need to change the PWM setting from a precalculated table at constant rate so that the servo follows **S-curve** minimizing abrupt changes in acceleration. S-curves, jerk (and snap, crackle and pop) are nicely explained in https://www.linearmotiontips.com/how-to-reduce-jerk-in-linear-motion-systems/. 
 
 To Do:
-- To initialize the hardware PWM programmatically, replicate the setup operations from command line example above
+- To initialize the hardware PWM programmatically, replicate the setup operations from command line example above. **NOTE** that opening a file, writing to a file, and closing the file does not quarantee that the file gets updated; you need to flush the stream! 
 - Create a timer service that keeps triggering every 100 milliseconds
 - Create S-curve motion profile for the table. You can start with the S-curve table below. Note that this is only 1-way movement from 0-100%, you must return to zero as well to be able to run the table data cyclically. You need to scale the percentage points to nanoseconds for servfo motor. Good starting point is 0% == 1.2ms and 100% == 1.8ms duty time. Looks like Excel work.
 - In handler, read next profile position from a table and write it to PWM. When reaching end of table, continue from beginning.
@@ -66,5 +66,3 @@ To Do:
 100,0 %
 ```
 
-
->>>>>>> 49aefbebb2ff135b586aaf3419981c75eaf2c788
