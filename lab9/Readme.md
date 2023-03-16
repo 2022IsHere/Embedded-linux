@@ -75,6 +75,20 @@ In this step you'll set up standard polling to get data from the server.
 1. Create vscode project in subfolder lab9/9.4 for a code that responds with current time. Create CGI project as you did in step 7.  Get the c code `time.c` from this repo. Build, test and deploy to /usr/lib/cgi-bin folder. Try with browser.
 2. The polling takes place in browser, so you need to set up a javascript snippet on your statically served web page. Get the html from this repo `poll-demo.html` and copy it to your web server static content folder. Open the page with browser and verify that you keep getting new data every second.  
 
+> Up-to-date browsers do not allow javascript content to access arbitrary web locations for security reasons. When browser fetches the html page containing the script, the html reply from server should contain a header field named "Access-Control-Allow-Origin" where the server lists the allowed ip addresses to be accessed. (Malicious actor may be able to inject scripts into page content with relative ease, but changing the html reply message headers would require access to server configuration i.e. full access to server).  
+
+To verify that your browser refuses to run the cgi code from script, checkl the browser-server communication using browser developer mode. In (Firefox) "Network" section you'll see a CORS error if server hasn't provided list of allowed IP's / domain names. You can also study the request/reply message headers with same tool.
+
+To fix the CORS problem, you need to add a new mod to lighttpd configuration to allow setting reply headers as in https://redmine.lighttpd.net/projects/lighttpd/wiki/Mod_setenv and add the header field as 
+
+```
+setenv.add-response-header += (
+   "Access-Control-Allow-Origin" => "*"
+)
+```
+
+In the example above, you would allow any served script to access any IP, thus voiding the intended protection... for our demo purposes it is OK.
+
 Now using CGI means there is a new process created every second. In raspi, check CPU load (use `top` fore example). Adjust the polling rate until raspi load is 20%. What is the polling interval then?  
 
 QUESTION 4: Commit your result for polling interval for 20% load as milliseconds in file lab9/9.4/results/load20rate.txt.
