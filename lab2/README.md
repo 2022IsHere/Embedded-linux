@@ -9,13 +9,17 @@ Have a Raspberry Pi with 32bit Raspbian OS (optionally Lite). If you prepare the
 
 Connect raspi to network and boot it. If you are in same LAN network, mDNS does magic and you can access your raspi using ```hostname.local``` where hostname is your above set hostname. This case applies when you have set up this VBox VM network in 'bridged' mode and are connected to same LAN as Raspi. If you are in NAT network mode, you need to use Raspi IP address for connections.
 
+```
+ssh pi@hostname.local
+```
+
 For convenient remote debugging, you will want to set up ssh keys, configure ssh shortname for the connection, install gdbserver to raspi, and synchronize raspi libraries to be similar to development libraries on this VM.
 
-For your eternal happiness this all can be achieved using a script in this lab2 folder (there is limited functionality version delivered with VM in student home folder, you should remove that to avoid problems `rm /home/student/raspi-init.sh`):
+For your eternal happiness this all can be achieved using a script in this lab2 folder:
 ```
 raspi-init.sh -t target -u username -p passwd
 ```
-where \
+where  
 ```target```: raspi IP address / hostname.local / ssh-config shortcut  
 ```username```: raspi username that you previously set to image (default 'pi')  
 ```passwd```: raspi password that you previously set to image
