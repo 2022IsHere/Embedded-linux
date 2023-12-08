@@ -51,7 +51,7 @@ fi
 # See output in raspi /var/log/auth.log to see which auth method was accepted.
 #
 printf "Checking pi ssh login... "
-pi_auth_log=$(sshpass -p $passwd ssh -o "StrictHostKeyChecking no" $username@$ipaddr 'cat /var/log/auth.log | grep -a "Accepted" | tail -1')
+pi_auth_log=$(sshpass -p $passwd ssh -o "StrictHostKeyChecking no" $username@$ipaddr 'journalctl -t sshd | grep -a "Accepted" | tail -1')
 if test "$?" != "0"; then
     echo -e "${RED}Error: failed to login to raspi!!!"
     echo "Check username and passwd."
@@ -89,15 +89,17 @@ if [ "$pi_os_id" = "ID=raspbian" ]; then
 else
     echo -e "${RED}Error: Pi OS is not Raspbian!!!"
     printf "     Pi OS id is %s\n" "$pi_os_id"
+    exit 1;
 fi
 
 printf "Checking pi OS version ... "
 pi_os_version_codename=$(echo $pi_osversion | tr ' ' '\n' |  grep VERSION_CODENAME)
-if [ "$pi_os_version_codename" = "VERSION_CODENAME=bullseye" ]; then
+if [ "$pi_os_version_codename" = "VERSION_CODENAME=bookworm" ]; then
     printf "OK, Pi OS codename is %s\n" "$pi_os_version_codename"
 else
-    echo -e "${RED}Error: Pi OS version is not bullseye!!!"
+    echo -e "${RED}Error: Pi OS version is not bookworm!!!"
     printf "      Pi OS codename is %s\n" "$pi_os_version_codename"
+    exit 1;
 fi
 
 #
@@ -167,12 +169,16 @@ fi
 #
 # Install stdlibc++ (required by gdbserver)
 #
+TOOLCHAINVERSION=armv8-rpi3-linux-gnueabihf
+LIBSTDVERSION=6.0.32
+
 printf "Install stdlibc++  to raspi ... "
-scp -q ~/opt/x-tools/armv6-rpi-linux-gnueabihf/armv6-rpi-linux-gnueabihf/sysroot/lib/libstdc++.so.6.0.30  $username@$ipaddr:~
+sudo scp -q ~/opt/x-tools/$TOOLCHAINVERSION/$TOOLCHAINVERSION/sysroot/lib/libstdc++.so.$LIBSTDVERSION  $username@$ipaddr:~
 ssh $username@$ipaddr bash << 'EOF'
+  LIBSTDVERSION=6.0.32
   sudo mkdir -p /usr/local/lib/arm-linux-gnueabihf
-  sudo cp libstdc++.so.6.0.30 /usr/local/lib/arm-linux-gnueabihf/
-  sudo rm libstdc++.so.6.0.30
+  sudo cp libstdc++.so.$LIBSTDVERSION /usr/local/lib/arm-linux-gnueabihf/
+  sudo rm libstdc++.so.$LIBSTDVERSION
   sudo ldconfig
 EOF
 printf "OK\n"
@@ -180,7 +186,7 @@ printf "OK\n"
 # Install gdbserver on raspi
 #
 printf "Install gdbserver to raspi ... "
-scp -q ~/opt/x-tools/armv6-rpi-linux-gnueabihf/armv6-rpi-linux-gnueabihf/debug-root/usr/bin/gdbserver $username@$ipaddr:~
+scp -q ~/opt/x-tools/$TOOLCHAINVERSION/$TOOLCHAINVERSION/debug-root/usr/bin/gdbserver $username@$ipaddr:~
 ssh $username@$ipaddr sudo mv gdbserver /usr/local/bin
 printf "OK\n"
 
@@ -206,6 +212,6 @@ printf "OK\n"
 # Update VM cross chroot
 #
 printf "Update cross rootfs on VM ... "
-sudo sbuild-apt rpizero-bullseye-armhf apt-get update >> ~/sbuild-apt.log
-sudo sbuild-apt rpizero-bullseye-armhf apt-get upgrade >> ~/sbuild-apt.log
+sudo sbuild-apt rpi3-bookworm-armhf apt-get update >> ~/sbuild-apt.log
+sudo sbuild-apt rpi3-bookworm-armhf apt-get upgrade >> ~/sbuild-apt.log
 printf "OK\n"
