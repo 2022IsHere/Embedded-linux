@@ -10,8 +10,9 @@ The common tool for C compilation in Linux is `gcc`. It is user-friendly by defa
 
 ### Lab assignment:
 
-In VM in this your local repository folder (embedded-linux-labs/lab1),
-- write tiny C application that prints timestamped hello message to an output file (use append)
+In VM in your local repository folder (embedded-linux-labs/lab1),
+- create a subfolder named native-build-hello and do following work in it:
+- write tiny C application named lab1.c that prints timestamped hello message to an output file (use append)
 - compile the code using VM native gcc (producing x86 architecture executable) `gcc lab1.c -o lab1`
 - use command `file lab1` to check that the executable is built for x86(-64) architecture
 - open two terminals, one with `tail -f your_output_filename` and in other you run your application.
