@@ -4,13 +4,13 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/var/lib/schroot/chroots/rpizero-bullseye-armhf/usr/include/**"
+                "/var/lib/schroot/chroots/rpi3-bookworm-armhf/usr/include/**"
             ],
             "compilerArgs": [
 				"-mfloat-abi=hard"
             ],
             "defines": [],
-            "compilerPath": "/home/student/opt/x-tools/armv6-rpi-linux-gnueabihf/bin/armv6-rpi-linux-gnueabihf-gcc",
+            "compilerPath": "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/armv8-rpi3-linux-gnueabihf-gcc",
             "cStandard": "gnu17",
             "cppStandard": "gnu++14",
             "intelliSenseMode": "gcc-arm",
