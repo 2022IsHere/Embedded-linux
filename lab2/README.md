@@ -2,7 +2,7 @@
 
 
 ## Setup:
-Have a Raspberry Pi with 32bit Raspbian OS (optionally Lite). If you prepare the Raspi boot SD card from image, use 'Raspberry Pi Imager' application and set the following options before flashing:
+Have a Raspberry Pi with 32bit Raspbian OS (optionally Lite). If you prepare the Raspi boot SD card from image, use 'Raspberry Pi Imager' application and set the following image customisation settings before flashing:
 - set a unique hostname to help connecting your device in lab environment
 - keep default user 'pi' but set a private password to prevent hassle in lab
 - enable ssh  
