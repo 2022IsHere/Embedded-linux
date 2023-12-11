@@ -17,7 +17,7 @@ For convenient remote debugging, you will want to set up ssh keys, configure ssh
 
 For your eternal happiness this all can be achieved using a script in this lab2 folder:
 ```
-raspi-init.sh -t target -u username -p passwd
+./raspi-init.sh -t target -u username -p passwd
 ```
 where  
 ```target```: raspi IP address / hostname.local / ssh-config shortcut  
@@ -27,11 +27,11 @@ where
 ### Examples
 Case where you have set up fresh Raspbian OS 32-bit image with hostname ```XXX```, user ```pi```, and passwd ```myraspipasswd```, and have the VM bridged to same ethernet LAN where raspi is connected:
 ```
-raspi-init.sh -t XXX -p myraspipasswd
+./raspi-init.sh -t XXX -p myraspipasswd
 ```
 Case where you have same raspi setup but your VM is in different LAN so that mDNS does not work (for example NATted VM or using Tailscale remote connection). You need to find out the raspi IP using nmap scan or attach display and keyboard to see the IP or some other way. 
 ```
-raspi-init.sh -t 172.27.242.233 -p mypasswd
+./raspi-init.sh -t 172.27.242.233 -p mypasswd
 ```
 
 After setup in both cases you have ssh configuration in ```~/.ssh/config``` setting a connection name rpi --> your device. This ssh connection name is then used in vscode setups. 
