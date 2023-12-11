@@ -102,8 +102,8 @@ Why do we want to use a complex cross-development setup? We could just install a
 In cross-development setup, gdb debugging functionality is divided into two parts. Full gdb runs on development system and more limited gdbserver runs on target system. Gdb handles everything related to symbols and user interface, and gdbserver does only target control parts.
 
 In this setup we end up having multiple instances of the shared libraries:
-- Cross-compiler on development system needs a version of target library to check shared symbol names and library versions. Glibc and gcc versions must be in sync for the toolchain. In lab VM we use gcc 12.1 with glibc 2.28.
-- The running code on target system needs access to run-time libraries, and run-time library versions are set by the Linux distro version you are running on target. In lab setup we have Raspbian OS based on debian bullseye, with glibc 2.31. The run-time library version should be newer than the build-time library version (Glibc is backwards compatible). 
+- Cross-compiler on development system needs a version of target library to check shared symbol names and library versions. Glibc and gcc versions must be in sync for the toolchain. In lab VM we use (cross) gcc 13.2 with glibc 2.27.
+- The running code on target system needs access to run-time libraries, and run-time library versions are set by the Linux distro version you are running on target. In lab setup we have Raspbian OS based on debian bookworm, with glibc 2.36. The run-time library version should be same or newer than the build-time library version (Glibc is backwards compatible). 
 - Gdb debugger on development system needs to read symbol information from the libraries. These libraries must match target platform libraries. 
 
 Practical consequences (in this lab setup) are indicated by "manual sync" arrow in graph:
@@ -114,9 +114,9 @@ pi@rpi0:~ $ sudo apt update
 pi@rpi0:~ $ sudo apt upgrade
 pi@rpi0:~ $ sudo apt install gpiod
 
-student@student-VirtualBox:~$ sudo sbuild-apt rpizero-bullseye-armhf apt-get update
-student@student-VirtualBox:~$ sudo sbuild-apt rpizero-bullseye-armhf apt-get upgrade
-student@student-VirtualBox:~$ sudo sbuild-apt rpizero-bullseye-armhf apt-get install gpiod
+student@student-VirtualBox:~$ sudo sbuild-apt rpi3-bookworm-armhf apt-get update
+student@student-VirtualBox:~$ sudo sbuild-apt rpi3-bookworm-armhf apt-get upgrade
+student@student-VirtualBox:~$ sudo sbuild-apt rpi3-bookworm-armhf apt-get install gpiod
 ```
 
 
@@ -160,7 +160,7 @@ end
 
 ### Lab assignment
 
-Your first task is to study what shared libraries your executable requires, and return your findings as text document in your repository `embedded-linux-labs/lab2/libraries.md` (have a quick look at markdown format while doing this, you have examples all around the repository!)
+Your first task is to study what shared libraries your executable "lab2" requires, and return your findings as text document in your repository `embedded-linux-labs/lab2/libraries.md` (have a quick look at markdown format while doing this, you have examples all around the repository!)
 - where is your executable located in VM, and where in raspi is it copied to?
 - use `file` command to check for what architecture the executable was built for
 - use `ldd` command to find out what shared runtime libraries your executable requires
@@ -175,12 +175,8 @@ Your second task is to identify all C runtime libraries in your development setu
   - Build-time library (in VM)
   - Run-time library (in raspi)
   - Debug library (in VM)
-- Glibc library is downwards compatible. Can you be sure that executables built on this setup and target Debian Bullseye will run on
-  - Debian Bookworm (glibc version 2.36)?
+- Glibc library is downwards compatible. Can you be sure that executables built on this setup and target Debian Bookworm will run on
+  - Debian Bullseye (glibc version 2.31)?
   - Debian Buster (glibc version 2.28)?
-- What do you need to do with development setup, if you 
-  - upgrade the target to Debian Bookworm?
-  - downgrade the target to Debian Buster?
 
-
-Reflection: What are benefits of cross-development setup?
+Reflection: What are the key benefits of cross-development setup?
