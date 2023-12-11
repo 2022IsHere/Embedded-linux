@@ -1,6 +1,6 @@
 [
     {
-        "name": "Raspberry Pi (armv6)",
-        "toolchainFile": "${workspaceFolder}/cmake/armv6-rpi-linux-gnueabihf.cmake"
+        "name": "Raspberry Pi (armv8)",
+        "toolchainFile": "${workspaceFolder}/cmake/armv8-rpi3-linux-gnueabihf.cmake"
     }
 ]
