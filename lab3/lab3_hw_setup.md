@@ -30,7 +30,7 @@ https://tuas365.sharepoint.com/sites/EmbeddedLinux/SiteAssets/Embedded%20Linux%2
 
 see https://pinout.xyz/ for Raspi pin mappings. 
 
- 
+![pins](/lab3/images/pin-locations.png){width=80%} 
 
 In the code we refer to GPIO 23. Find it from the pin map - check what's its location in the pin header. 
 
