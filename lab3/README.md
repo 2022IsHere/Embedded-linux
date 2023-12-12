@@ -219,20 +219,18 @@ target_link_libraries(lab3 /var/lib/schroot/chroots/rpi3-bookworm-armhf/usr/lib/
 ``` 
 ## 10. Try to recompile
  
- 
+``` 
 [build] [ 33%] Linking C executable lab3 
 [build] [100%] Built target lab3 
 [build] Build finished with exit code 0 
- 
+``` 
  
 Finally! :) 
+
+Now it is a good time to commit all changes in your lab3 files to repository. A proper commit message would be something like "lab3 project set up for successful build, not tested yet" which would be helpful info if you need to revert back to earlier commits in future.
  
 ## 11. Debugging 
  
- 
-Start debugging by pressing F5. Play with breakpoints, see how the program works.  Now, obviously, you cannot see the LED blinking, because you don't have the LED there yet, so we need to build the HW first. 
+Start debugging by pressing F5. Play with breakpoints, see how the program works.  Now, obviously, you cannot see the LED blinking, because you don't have the LED there yet, so we need to build the HW first, continue to
 
-For the time being, instructions for Lab 3 are in OneNote, follow this link:
-
-https://tuas365.sharepoint.com/sites/EmbeddedLinux/_layouts/OneNote.aspx?id=%2Fsites%2FEmbeddedLinux%2FSiteAssets%2FEmbedded%20Linux%20Notebook&wd=target%28_Content%20Library%2FLab%20instructions.one%7C42607D48-00A8-4794-BE2F-8E7D123BC79E%2FLAB3%20-%20The%20HW%20interface%7C76B6FF95-868B-48E9-B6B8-FC9369BA6CA3%2F%29
-
+[HW setup for lab3](lab3_hw_setup.md)
