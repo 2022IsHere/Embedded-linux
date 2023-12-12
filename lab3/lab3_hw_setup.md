@@ -34,96 +34,57 @@ see https://pinout.xyz/ for Raspi pin mappings.
 
 In the code we refer to GPIO 23. Find it from the pin map - check what's its location in the pin header. 
 
-![Example setup](/images/image.png)*Example setup*
+![Example setup](/lab3/images/example_setup.jpeg)*Example setup*
  
 
  
 
 ## Assignment 1 
 
-Change the program so that it blinks in an endless loop 
-
-- See the activity/frequency with an oscillosope. 
-
-Change the loop delay to 1 millisecond (1000 us). Google for usleep() 
-
-- Measure the cycle time 
-
-- Measure the jitter (average / peak) using persistence view/ measurement tools (Duty cycle / high pulse width). 
-
-- what would you say about the quality of such "generated clock"? 
-
-Change the loop delay to 1us and perform the same 
-
- - what is the true cycle time now? 
-
-Remove the printf()-call (comment it out) 
-
+1. Change the program so that it blinks in an endless loop 
+    - See the activity/frequency with an oscillosope. 
+2. Change the loop delay to 1 millisecond (1000 us). Google for usleep() 
+    - Measure the cycle time 
+    - Measure the jitter (average / peak) using persistence view/ measurement tools (Duty cycle / high pulse width). 
+    - what would you say about the quality of such "generated clock"? 
+3. Change the loop delay to 1us and perform the same 
     - what is the true cycle time now? 
-
-Remove the 1us delay (comment it out) 
-
-- what is the true cycle time now? 
-
-Add the printf back 
-
-- What are your observations? (have a look at the led as well) 
-
-Add the following line after printf(): 
- 
-
+4. Remove the printf()-call (comment it out) 
+    - what is the true cycle time now? 
+5. Remove the 1us delay (comment it out) 
+    - what is the true cycle time now? 
+6. Add the printf back 
+    - What are your observations? (have a look at the led as well) 
+7. Add the following line after printf()
+    - How does the situation change? 
+``` 
 fflush(stdout); 
+```
+    
+8. Comment out the fflush()-call and now run the the code directly in RasPi 
+    - What is the cycle time / jitter now? 
 
- 
-
-- How did the situation change? 
-
-Comment out the fflush()-call and now run the the code directly in RasPi 
-
-What is the cycle time / jitter now? 
-
- 
-
- 
-
-The behavioural is explained in this post: 
+ The behaviour is explained in this post: 
 https://stackoverflow.com/questions/39536212/what-are-the-rules-of-automatic-stdout-buffer-flushing-in-c 
-
- 
 
 In our case, during debugging, there is no terminal attached to the printf-command, so it is not automatically flushing after every printf, even if we have newline (/n)-character these. It is flushed when the buffer is full. BUT, if we run the same program directly in RasPi (that is, not via  debugger), we do have a terminal connected to the our application, so each printf(... \n ) will cause the actual printout, which will take some time.  
 
- 
+**A key point here is**: If you have timing-critical applications, NEVER use printf() or fprintf() for debugging, because it changes the timing dramatically. 
 
-A key point here is: If you have timing-critical applications, NEVER use printf() or fprintf() for debugging, because it changes the timing dramatically. 
+## Submission of assignment 1:   
 
- 
-
- 
-
-Submission of assignment 1:   
-
-commit your source files to git (the ones you copied to /src -directory) 
+Commit your source files to git (the ones you copied to /src -directory) 
 
 Create a text-file: Lab3_answers.txt containing the answers to questions 2-8 , and push that to git as well 
 
- 
-
- 
-
-Assignment 2 
-
- 
+## Assignment 2 
 
 Build a HW that has a Button input and a LED output. You can expand the circuit of previous step.  
-
- 
 
 A few words about the HW / input pins here:  
 
 Configuring the input pin to have internal pull-up   (Web view)  
 
- 
 
 When you press the button, your program measures the length of a button press, prints it into a log file and blinks a LED in following way: 
 
@@ -140,8 +101,8 @@ Example: The button press is 730 ms. Your program will output 7 pulses.
  
  
 
-Submission of assignment 2: 
+## Submission of assignment 2: 
 
 commit your source files to git 
 
-Grab the button input + led output with an oscilloscope, save it (current waveform only) as CSV-file and push it to git. 
+Grab the button input + led output with an oscilloscope, save it (select "current waveform only") as CSV-file and push it to git. 
