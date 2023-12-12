@@ -34,7 +34,7 @@ see https://pinout.xyz/ for Raspi pin mappings.
 
 In the code we refer to GPIO 23. Find it from the pin map - check what's its location in the pin header. 
 
-![Example setup](/lab3/images/example_setup.jpeg | width=200)*Example setup*
+![Example setup](/lab3/images/example_setup.jpeg)*Example setup*
  
 
  
@@ -73,36 +73,24 @@ In our case, during debugging, there is no terminal attached to the printf-comma
 
 ## Submission of assignment 1:   
 
-Commit your source files to git (the ones you copied to /src -directory) 
-
-Create a text-file: Lab3_answers.txt containing the answers to questions 2-8 , and push that to git as well 
+- Commit your source files to git
+- Create a text-file: Lab3_answers.txt containing the answers to questions 2-8 , and commit that to git as well 
 
 ## Assignment 2 
 
 Build a HW that has a Button input and a LED output. You can expand the circuit of previous step.  
 
-A few words about the HW / input pins here:  
-
-Configuring the input pin to have internal pull-up   (Web view)  
-
+  
+[A few words about the HW and input pins](configuring-gpio-pin-pullup.md)
 
 When you press the button, your program measures the length of a button press, prints it into a log file and blinks a LED in following way: 
-
- 
-
-10 ms pulse (high), followed by 90 ms pause (low) 
-
-The total lenght of the pulse train equals lenght of the button press (100ms accuracy is enough) 
+- 10 ms pulse (high), followed by 90 ms pause (low) 
+- The total lenght of the pulse train equals lenght of the button press (100ms accuracy is enough)  
 
 Example: The button press is 730 ms. Your program will output 7 pulses. 
 
- 
- 
- 
- 
 
 ## Submission of assignment 2: 
 
-commit your source files to git 
-
-Grab the button input + led output with an oscilloscope, save it (select "current waveform only") as CSV-file and push it to git. 
+- Commit your source files to git 
+- Grab the button input + led output with an oscilloscope, save it (select "current waveform only") as CSV-file and push it to git. 
