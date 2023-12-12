@@ -68,33 +68,46 @@ You now have a C language MQTT client native project, with full debug support.
 
 ### Cross-build paho libraries
 
-First, do a `make clean` to remove x86 build results from paho folder. Removing the built executables does not break anything, because the previous `make install` copied the important files into system libraries already.  
+First, in paho.mqtt.c folder do a `make clean` to remove x86 build results from paho folder. Removing the built executables does not break anything, because the previous `make install` copied the important files into system libraries already.  
 
 So you need to cross-build paho libraries. For cross-build to be successful, you need to tell to make build process that
 1. it must use cross-compiler `armv6-rpi-linux-gnueabihf-gcc` instead of native `gcc`
-2. it must search all dependent libraries from our arm library folder `/var/lib/schroot/chroots/rpizero-bullseye-armhf/usr/lib/` instead of the standard native library paths like `/usr/lib`
+2. it must search all dependent libraries from our arm library folder `/var/lib/schroot/chroots/rpi3-bookworm-armhf/usr/lib/` instead of the standard native library paths like `/usr/lib`
 Fortunately most makefiles are generally constructed in similar fashion, they use environment variables for conveying this information. "CC" specifies the C compiler, and LDFLAGS can be used to give extra parameters for the linker:
 ```
-student@student-VirtualBox:~/paho.mqtt.c$ CC=armv6-rpi-linux-gnueabihf-gcc LDFLAGS=--sysroot=/var/lib/schroot/chroots/rpizero-bullseye-armhf/ make
+student@student-VirtualBox:~/paho.mqtt.c$ CC=armv8-rpi3-linux-gnueabihf-gcc LDFLAGS=--sysroot=/var/lib/schroot/chroots/rpi3-bookworm-armhf/ make
 
 ```
-Once more there is trouble with missing <openssl/ssl.h> include file. When doing native build, you added the `libssl-dev` package to VM native libraries. Now you need to do the same again for arm sysroot `/var/lib/schroot/chroots/rpizero-bullseye-armhf/usr/lib/`. To add libraries there you use the utility tool to fetch the required package from Raspbian repository
+Once more there is trouble with missing <openssl/ssl.h> include file. When doing native build, you added the `libssl-dev` package to VM native libraries. Now you need to do the same again for arm sysroot `/var/lib/schroot/chroots/rpi3-bookworm-armhf/usr/lib/`. To add libraries there you use the utility tool to fetch the required package from Raspbian repository
 ```
-sudo sbuild-apt rpizero-bullseye-armhf apt-get install libssl-dev
+sudo sbuild-apt rpi3-bookworm-armhf apt-get install libssl-dev
 ```
-Now the make build should be successful. You can find the built executables in folder `paho.mqtt.c/build/output`. Use file command to check that output files are for arm architecture
+Now the make build fails with different error:
 ```
-student@student-VirtualBox:~/paho.mqtt.c$ file build/output/libpaho-mqtt3c.so.1.3
+...
+/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/bin/ld.bfd: warning: libdl.so.2, needed by build/output/libpaho-mqtt3cs.so, not found (try using -rpath or -rpath-link)
+...
+```
+This smells like cross-development setup with nested libary dependencies in nonstandard locations. The fix is found with following steps: first we should check does the missing library exist and where is it located. Using ```sudo find / -name libdl.so.2``` we see that the missing library exists in folder /var/lib/schroot/chroots/rpi3-bookworm-armhf/usr/lib/arm-linux-gnueabihf/ but is not found by the linker. Looking at gcc linker options we see that we could pass extra paths using rpath-link (as was suggested in original error message). In the next try we pass two linker options via LDFLAGS so we need to use quotes around them:
+```
+student@student-VirtualBox:~/paho.mqtt.c$ CC=armv8-rpi3-linux-gnueabihf-gcc LDFLAGS="--sysroot=/var/lib/schroot/chroots/rpi3-bookworm-armhf/ -Wl,-rpath-link,/var/lib/schroot/chroots/rpi3-bookworm-armhf/usr/lib/arm-linux-gnueabihf/" make
+
+```
+Thi sbuild should be successful. You can find the built executables in folder `paho.mqtt.c/build/output`. Use ```readelf -h``` command to check that output files are for arm architecture.
+```
+student@student-VirtualBox:~/paho.mqtt.c$ readelf -h build/output/libpaho-mqtt3c.so.1.3
 ```
 You need to install these libraries to arm sysroot in VM, so that application building and debugging is possible.
 ```
-sudo DESTDIR=/var/lib/schroot/chroots/rpizero-bullseye-armhf LDCONFIG=echo make install
+sudo DESTDIR=/var/lib/schroot/chroots/rpi3-bookworm-armhf LDCONFIG=echo make install
 ```
 Next you need to install these files to raspi. `make install` does not help us here, it has no idea where the target is. You do the install manually (set the raspi ip and user; unfortunately ssh config does not help with scp):
 ```
 student@student-VirtualBox:~/paho.mqtt.c$ scp build/output/libpaho-mqtt3* pi@172.x.x.x:~
 student@student-VirtualBox:~/paho.mqtt.c$ ssh rpi 'sudo cp libpaho* /usr/local/lib/'
 ```
+Finally, we have paho mqtt libraries cross-built and installed both in debug environment and raspi. Next we can build applications that use those libraries.
+
 
 ### Create MQTT client application for raspi
 
