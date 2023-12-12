@@ -112,10 +112,10 @@ Finally, we have paho mqtt libraries cross-built and installed both in debug env
 ### Create MQTT client application for raspi
 
 1. To create a new cross-build project into {repo}/lab7/mqtt-raspi, revisit instructions [on this page](../lab2/howto-create-vscode-projects.md)): copy lab2 configs and rebuild CMake cache. Add paho-mqtt3c library to CMakeLists.txt:
-2. Copy your C source to {repo}/lab7/mqtt-raspi/mqtt-client.c (edit the file: change broker address from localhost to VM IP, and change payload message too)
+2. Copy your C source to {repo}/lab7/mqtt-raspi/mqtt-client.c (edit the file: change broker address from localhost to VM IP assuming VM has bridged connection to lab net, and change payload message too)
 ```
-include_directories(/var/lib/schroot/chroots/rpizero-bullseye-armhf/usr/local/include/)
-target_link_libraries(lab7 /var/lib/schroot/chroots/rpizero-bullseye-armhf/usr/local/lib/libpaho-mqtt3c.so )
+include_directories(/var/lib/schroot/chroots/rpi3-bookworm-armhf/usr/local/include/)
+target_link_libraries(lab7 /var/lib/schroot/chroots/rpi3-bookworm-armhf/usr/local/lib/libpaho-mqtt3c.so )
 ```
 3. Build `F7` and Debug `F5`
 
