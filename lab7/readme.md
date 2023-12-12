@@ -71,7 +71,7 @@ You now have a C language MQTT client native project, with full debug support.
 First, in paho.mqtt.c folder do a `make clean` to remove x86 build results from paho folder. Removing the built executables does not break anything, because the previous `make install` copied the important files into system libraries already.  
 
 So you need to cross-build paho libraries. For cross-build to be successful, you need to tell to make build process that
-1. it must use cross-compiler `armv6-rpi-linux-gnueabihf-gcc` instead of native `gcc`
+1. it must use cross-compiler `armv8-rpi3-linux-gnueabihf-gcc` instead of native `gcc`
 2. it must search all dependent libraries from our arm library folder `/var/lib/schroot/chroots/rpi3-bookworm-armhf/usr/lib/` instead of the standard native library paths like `/usr/lib`
 Fortunately most makefiles are generally constructed in similar fashion, they use environment variables for conveying this information. "CC" specifies the C compiler, and LDFLAGS can be used to give extra parameters for the linker:
 ```
