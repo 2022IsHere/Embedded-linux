@@ -103,7 +103,7 @@ Biases:
  
 Now, if you want to have a button input, the most common (and best way) way is to connect a button between a GPIO-pin and ground, and provide a pull-up resistor. When the button is unpressed, the pull-up resistor "pull" the input high = to vcc = logical '1'. When the button is pressed, it connects the gpio-pin to ground = logical '0'. 
 
-![](/lab3/images/two-ways-to-wire-switch) 
+![twoways](/lab3/images/two-ways-to-wire-switch.jpg)
 
 Image source: https://www.dummies.com/article/technology/computers/hardware/raspberry-pi/recognizing-and-coping-with-contact-bounce-on-the-raspberry-pi-143678/ 
 
