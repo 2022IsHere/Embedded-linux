@@ -202,7 +202,7 @@ Open libgpiod-input.c and modify it like this:
 You will see that the code changes to green (thanks to VSCode's syntax coloring / ability to understand these preprocessor directives). 
 Instead of using "0" as confition for #if, you can also use compile flags to pass information to preprocessor. This is especially useful if/when you need to make build variants of your program. 
  
-9. Compilation ( 4th ) 
+## 9. Compilation ( 4th ) 
  
 Now try to rebuild (F7). 
  
@@ -217,7 +217,7 @@ Add the following line to CMakeLists.txt
 ``` 
 target_link_libraries(lab3 /var/lib/schroot/chroots/rpi3-bookworm-armhf/usr/lib/arm-linux-gnueabihf/libgpiod.so) 
 ``` 
-10. Try to recompile
+## 10. Try to recompile
  
  
 [build] [ 33%] Linking C executable lab3 
@@ -227,7 +227,7 @@ target_link_libraries(lab3 /var/lib/schroot/chroots/rpi3-bookworm-armhf/usr/lib/
  
 Finally! :) 
  
-11. Debugging 
+## 11. Debugging 
  
  
 Start debugging by pressing F5. Play with breakpoints, see how the program works.  Now, obviously, you cannot see the LED blinking, because you don't have the LED there yet, so we need to build the HW first. 
