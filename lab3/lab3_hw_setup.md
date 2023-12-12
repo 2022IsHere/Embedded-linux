@@ -34,7 +34,7 @@ see https://pinout.xyz/ for Raspi pin mappings.
 
 In the code we refer to GPIO 23. Find it from the pin map - check what's its location in the pin header. 
 
-![Example setup](/lab3/images/example_setup.jpeg)*Example setup*
+![Example setup](/lab3/images/example_setup.jpeg | width=200)*Example setup*
  
 
  
