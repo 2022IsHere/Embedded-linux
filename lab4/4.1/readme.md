@@ -14,32 +14,6 @@ Cron mechanism provides high configurability, but is limited one minute resoluti
 ```
 and rebuild (ctrl-shift-P rebuild (ctrl-shift-P "CMake: Delete cache and reconfigure", then F5 to to build and debug).
 
-
-
-
-
-
-
-```
-Note!
-
-Timer-related functions can be found in librt-library, which is included in CMakeLists.txt. Unfortunately there is a a broken symbolic link in the build environment.
-
-$ ls -l /var/lib/schroot/chroots/rpizero-bullseye-armhf/usr/lib/arm-linux-gnueabihf/librt.so*
-
-lrwxrwxrwx 1 root root 35 loka   18 17:24 /var/lib/schroot/chroots/rpizero-bullseye-armhf/usr/lib/arm-linux-gnueabihf/librt.so -> /lib/arm-linux-gnueabihf/librt.so.1
-
-lrwxrwxrwx 1 root root 13 loka   18 17:24 /var/lib/schroot/chroots/rpizero-bullseye-armhf/usr/lib/arm-linux-gnueabihf/librt.so.1 -> librt-2.31.so
-
-
-Fix that by first removing the broken link (the upper one) and create a new symbolic link, which points to librt-2.31.so in the same directory (see the lower link).
-
-ln -s <source_file> <symbolic_link>
-
-Under lab 4.1 you will find a script "fix_broken_lib_links.sh", which will correct (hopefully) all the broken links. 
-
-```
-
 ### Exercise 4.1: kernel timers
 
 Modify kernel timer example to produce software generated PWM pulses for a servo motor. Servo pulses shall occur every 20 milliseconds and the nominal pulse length for servo middle position is 1.5ms. The angular position is controlled with pulse modulation, where pulse width can vary from 1.0 ms to 2.0 ms. Linux kernel does not prefer using floats, and also in this case all parameters are integers. Clearly if we want to generate accurate output pulse widths, then having only integer values either 1 or 2 milliseconds is not good.  
