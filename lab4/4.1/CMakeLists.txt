@@ -8,6 +8,5 @@ include_directories(/var/lib/schroot/chroots/rpizero-bullseye-armhf/usr/local/in
 include_directories(/var/lib/schroot/chroots/rpizero-bullseye-armhf/usr/include/) 
 include_directories(/var/lib/schroot/chroots/rpizero-bullseye-armhf/usr/include/arm-linux-gnueabihf/) 
 
-include(GNUInstallDirs)
 install(TARGETS lab4.1
         RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
