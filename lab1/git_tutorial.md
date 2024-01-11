@@ -21,13 +21,13 @@ In this case it makes sense to create the file and write the answers using TUAS 
 
 https://git-scm.com/video/what-is-version-control (5:58)  
 Q1: What are the benefits of using git version control?
-
+Q1-answer: Version control has multiple benefits. It allows to track the development with knowledge of state of project, previous states, enable cowork, merge branches, etc. 
 https://git-scm.com/video/what-is-git (8:15)  
 Q2: What is a distributed version control system?
-
+Q2-answer: It's a form of system of the complete codebase, having full history of development and possibility to mirror on every devs computer.
 https://git-scm.com/video/get-going (4:26)  
 Q3: What are the most important git commands in terminal use?
-
+Q3-answer: pull, push, merge.
 
 ## GitLab overview
 
@@ -42,8 +42,9 @@ Study the videos below and append your answers into file `embedded-linux-labs/la
 
 [Introduction to GitLab](https://youtu.be/_4SmIyQ5eis?t=90) (59:51)  
 Q4: Explain "GitLab Recommended Process"  
+Q4-answer: Choose proper branching strategy. Commit changes frequently with proper commit messages. Pull first at the beginning of each work session. Use branching to isolate new features of main flow. Keep main branch stable. Review code frequently. Use pull and merge requests. Integrate automated testing before merging to main. Document your work.  
 Q5: What is a "Merge Request"?
-
+Q5-answer: It's an action to add new code to allready existing project codevase. 
 For other material, see   
 https://docs.gitlab.com/ee/tutorials/  
 
