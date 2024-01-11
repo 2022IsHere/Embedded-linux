@@ -1,0 +1,19 @@
+# Ignore compiles binaries
+*.o
+*.out
+
+# Ignore build artifacts
+/build/
+/bin/
+
+# Ignore IDE or editor-specific files
+.vscode/
+.idea/
+
+# Include source files
+*.c
+*.h
+
+# Include text and CSV files
+*.txt
+*.csv
