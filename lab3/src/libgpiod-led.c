@@ -20,7 +20,7 @@ int main(int argc, char **argv)
 		perror("Open chip failed\n");
 		goto end;
 	}
-
+	
 	line = gpiod_chip_get_line(chip, line_num);
 	if (!line) {
 		perror("Get line failed\n");
@@ -35,14 +35,16 @@ int main(int argc, char **argv)
 
 	/* Blink 20 times */
 	val = 0;
-	for (i = 20; i > 0; i--) {
+	//for (i = 200; i > 0; i--) {
+	while(1) {
 		ret = gpiod_line_set_value(line, val);
 		if (ret < 0) {
 			perror("Set line output failed\n");
 			goto release_line;
 		}
 		printf("Output %u on line #%u\n", val, line_num);
-		sleep(1);
+		//fflush(stdout); 
+		//usleep(1);
 		val = !val;
 	}
 
