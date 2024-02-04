@@ -1,0 +1,10 @@
+# This file containts cron rules for 4.0 assignment
+# Run 'crontab -e' in raspberry pi terminal
+
+# cron rules for running the script every even minute and not to run every odd minute
+*/2 * * * * cd /home/pi/ && ./lab4-ledon
+1-59/2 * * * * cd /home/pi/ && ./lab4-ledoff
+
+# cron rules to run the script every 30 minutes
+*/30 * * * * /home/pi/lab4
+
