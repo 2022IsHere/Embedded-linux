@@ -21,7 +21,8 @@
 timer_t firstTimerID;
 timer_t secondTimerID;
 timer_t thirdTimerID;
-timer_t fourthTimerID;
+timer_t fourthTimerID; // 20 ms timer
+//timer_t fifthTimerID; // Pulse stop timer
 
 
 /**@brief Common handler for all the timers
@@ -43,8 +44,23 @@ static void timerHandler( int sig, siginfo_t *si, void *uc )
     	fprintf (fp, "Timer 3 says hello!\n");
     } else if ( *tidp == fourthTimerID ) {
         fprintf (fp, "Timer 4 says hello!\n");
+        /* STEP 1 | Single function to init GPIO and toggle GPIO */
         pwm_pulse_init();
-    }
+        toggle_gpio_pin();
+        
+
+        /* STEP 2 
+        pwm_pulse_init();
+        turn_on_pwm();
+        */
+    } 
+    /* STEP 2 
+    else if ( *tidp == fifthTimerID ) {
+        fprintf(fp, "Timer 5 says hello!\n");
+        pwm_pulse_init();
+        turn_off_pwm();
+        cleanup_gpio();
+    } */
     fclose(fp);
 }
 
@@ -53,7 +69,7 @@ static void timerHandler( int sig, siginfo_t *si, void *uc )
  *
  * @details
  */
-static int makeTimer(timer_t *timerID, int expire_msec, int interval_msec )
+static int makeTimer(timer_t *timerID, int expire_msec, float interval_msec )
 {
     struct sigevent         te;
     struct itimerspec       its;
@@ -114,6 +130,13 @@ int timers_init(void)
 	if (err_code != 0) {
 			return err_code;
 	}
+    /* STEP 2 
+    err_code = makeTimer(&fifthTimerID, 0, 1.5); // 1.5 ms PWM pulse length
+    if (err_code != 0) {
+        return err_code;
+    }
+    */
+
 	return 0;
 
 }
