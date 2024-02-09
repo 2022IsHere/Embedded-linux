@@ -24,6 +24,11 @@ int currentTableIndex = 0;
 int currentDirection = 1; // 1 for forward, -1 for reverse
 
 
+#define TABLESIZE 23
+static double forwardSCurveTable[TABLESIZE]; 
+static double reverseSCurveTable[TABLESIZE]; 
+static int tableSize = TABLESIZE;
+
 /* Let's create the global timer objects */
 timer_t timerServiceID;
 
@@ -44,12 +49,8 @@ int calculateSCurve() {
     double percentages[] = {0.0, 0.4, 1.3, 3.0, 5.6, 9.3, 14.2, 20.3, 27.0, 34.3, 41.9, 49.7, 57.6, 65.2, 72.5, 79.2, 85.2, 90.3, 94.3, 97.0, 98.6, 99.6, 100.0};
 
     // Minimum and maximum pulse width in nanoseconds
-    double minPW_NS = 1200000;
-    double maxPW_NS = 1800000;
-
-    int tableSize = sizeof(percentages) / sizeof(percentages[0]);
-    double forwardSCurveTable[tableSize];
-    double reverseSCurseTable[tableSize];
+    double minPW_NS = 1500000;
+    double maxPW_NS = 2100000;
 
     // Calculate forward S-Curve table
     for (int index = 0; index < tableSize; index++) {
@@ -63,12 +64,12 @@ int calculateSCurve() {
 
     // Calculate reverse S-Curve table
     for (int index = 0; index < tableSize; index++) { 
-        reverseSCurseTable[index] = scaleToNs(percentages[tableSize - 1 - index], minPW_NS, maxPW_NS);
+        reverseSCurveTable[index] = scaleToNs(percentages[tableSize - 1 - index], minPW_NS, maxPW_NS);
     }
 
     printf("S-Curve table (in nanoseconds):\n");
     for (int index = 0; index < tableSize; index++) {
-        printf("%.1f%%: %.0f ns\n", percentages[tableSize - 1 - index], reverseSCurseTable[index]);
+        printf("%.1f%%: %.0f ns\n", percentages[tableSize - 1 - index], reverseSCurveTable[index]);
     }
 
     return 0;
@@ -97,10 +98,11 @@ void writePositionToPWM(int pwmNumber, double position) {
 }
 
 
-/**@brief Common handler for all the timers
- *
- * @details
- */
+/*
+*@brief Common handler for all the timers
+*
+* @details
+*/
 static void timerHandler( int sig, siginfo_t *si, void *uc )
 {
 
@@ -180,7 +182,7 @@ int timers_init(void)
 	int err_code;
 
 	//Create timers
-	err_code = makeTimer(&timerServiceID, 0, 100); //5ms
+	err_code = makeTimer(&timerServiceID, 0, 80); //100ms
 	if (err_code != 0) {
 		return err_code;
 	}

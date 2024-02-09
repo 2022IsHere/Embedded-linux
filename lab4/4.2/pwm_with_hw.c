@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 #include "timers_init.h"
 
@@ -74,9 +75,13 @@ int main() {
     if (err_code != 0) {
         perror("Failed to set up PWM!\n");
         return -1;
-    }
-    */
+    }*/
+    
+
     calculateSCurve();
+    timers_init();
+
+    while(1);
 
     return 0;
 }
