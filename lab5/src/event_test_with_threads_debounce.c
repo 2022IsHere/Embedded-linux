@@ -47,7 +47,6 @@ void interrupt_service_rutine(struct gpiod_line *lineButton) {
 		gpiod_line_set_value(lineButton,LOW);
 		printf("Button press is confirmed!\n");
 
-		last_interrupt_time = 0;
     }
     last_interrupt_time = current_interrupt_time;
 }
