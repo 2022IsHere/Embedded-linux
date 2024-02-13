@@ -6,8 +6,6 @@
  */
 
 
-#if 0
-
 #include <gpiod.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -16,7 +14,57 @@
 #ifndef	CONSUMER
 #define	CONSUMER	"Consumer"
 #endif
+/*
+	****Debouncing software****
+   Idea is to save the moment falling edge is detected. 
+   Next time falling edge is detected, 
+   compare previous and new moment. 
+   In case result < 200 ms, 
+   discard as bouncing of the button. 
+   Otherwise, toggle button!
+*/
 
+#include <sys/time.h> 
+
+#define LOW 0
+#define HIGH 1
+
+int last_interrupt_time = 0; 
+
+// Function to save specific moment in time since epoch
+int interrupt_time() {
+    struct timeval tv;
+    gettimeofday(&tv, NULL);
+    return (tv.tv_sec * 1000) + (tv.tv_usec / 1000);
+}
+
+// Function to handle ISR
+void interrupt_service_rutine(struct gpiod_line *lineButton) {
+    int current_interrupt_time = interrupt_time();
+	printf("current time - previous time: %d ms\n", (current_interrupt_time-last_interrupt_time));
+    if (current_interrupt_time - last_interrupt_time > 200) {
+
+        // Run script to toggle button
+        //gpiod_line_set_value(lineButton, !gpiod_line_get_value(lineButton));
+		gpiod_line_set_value(lineButton,LOW);
+		printf("Button press is confirmed!\n");
+
+		last_interrupt_time = 0;
+    }
+    last_interrupt_time = current_interrupt_time;
+}
+
+// Function to detect falling edge
+void is_falling_edge(struct gpiod_line_event *event, struct gpiod_line *lineButton) {
+
+	printf("Event type is: %d\n", event->event_type);
+    if (event->event_type == 1) {
+
+		printf("is_falling_edge returned true!\n");
+		// In case falling edge, run ISR to handle possible bouncing
+        interrupt_service_rutine(lineButton);
+    }
+}
 
 // Let's define the pins here
 #define BUTTON_PIN 	22
@@ -32,52 +80,45 @@ typedef struct {
     struct gpiod_line *line;
 } gpio_stuff_t;
 
-
-
-
 void *gpio_function(void *args) {
+    int i, ret;
+    struct gpiod_line_event event;
 
-	int i, ret;
-	struct gpiod_line_event event;
+    gpio_stuff_t *actual_args = args;
 
+    i = 1;
 
-	gpio_stuff_t *actual_args = args;
+    printf("Let's go luteet, says gpio thread\n");
 
+    while (true) {
+        ret = gpiod_line_event_wait(actual_args->line, &actual_args->ts);
 
-	i=0;
+        if (ret < 0) {
+            perror("Wait event notification failed\n");
+            ret = -1;
+            return (void *)(ret);
+        } else if (ret == 0) {
+            printf("Waiting period for event timed out!\n");
+            fflush(stdout);
+            continue;
+        }
 
-	printf("Let's go luteet, says gpio thread\n");
-
-
-	while (true) {
-
-
-		ret = gpiod_line_event_wait(actual_args->line, &actual_args->ts);
-
-		if (ret < 0) {
-			perror("Wait event notification failed\n");
-			ret = -1;
-			return (void *)(ret);
-		} else if (ret == 0) {
-			//printf("Wait event notification on line #%u timeout\n", actual_args->line_num);
-			printf("*");
-			fflush(stdout);
-			continue;
-		}
-
+		// Read event on gpio line, 1 equals event, 0 equals none
 		ret = gpiod_line_event_read(actual_args->line, &event);
 
-		//printf("event: %s timestamp: [%8ld.%09ld]\n", event.event_type, event.ts.tv_sec, event.ts.tv_nsec);
-		printf("\nevent #%d time stamp: %8ld.%09ld secs\n",i,(long int)event.ts.tv_sec,(long int)event.ts.tv_nsec);
+		printf("Get event notification on line #%u %d times\n", actual_args->line_num, i);
 		if (ret < 0) {
 			perror("Read last event notification failed\n");
 			ret = -1;
 			return (void *)(ret);
 		}
 
-		i++;
-	}
+        // Check for falling edge and handle debouncing
+        is_falling_edge(&event, actual_args->line);
+	
 
+        i++;
+    }
 }
 
 
@@ -120,7 +161,6 @@ int main(int argc, char **argv)
 		ret = -1;
 		goto release_line;
 	}
-
 
 	// Open more GPIO lines, skip error checking...
 	lineRed = gpiod_chip_get_line(chip, RED_PIN);
@@ -175,4 +215,3 @@ close_chip:
 end:
 	return ret;
 }
-#endif

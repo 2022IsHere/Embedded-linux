@@ -138,7 +138,7 @@ int main(int argc, char **argv)
 	ret = pthread_create( &gpio_thread, NULL, gpio_function, &gpio_stuff);
 
 
-	/* The eternal main loop */
+	// The eternal main loop 
 	i = 0;
 	while (true) {
 

@@ -5,9 +5,6 @@
  *      Author: jarno
  */
 
-
-#if 0
-
 #include <gpiod.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -140,4 +137,3 @@ end:
 	return ret;
 }
 
-#endif
