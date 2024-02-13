@@ -21,7 +21,7 @@
    compare previous and new moment. 
    In case result < 200 ms, 
    discard as bouncing of the button. 
-   Otherwise, toggle button!
+   Otherwise, set button press to correct gpio line!
 */
 
 #include <sys/time.h> 
@@ -44,8 +44,6 @@ void interrupt_service_rutine(struct gpiod_line *lineButton) {
 	printf("current time - previous time: %d ms\n", (current_interrupt_time-last_interrupt_time));
     if (current_interrupt_time - last_interrupt_time > 200) {
 
-        // Run script to toggle button
-        //gpiod_line_set_value(lineButton, !gpiod_line_get_value(lineButton));
 		gpiod_line_set_value(lineButton,LOW);
 		printf("Button press is confirmed!\n");
 
