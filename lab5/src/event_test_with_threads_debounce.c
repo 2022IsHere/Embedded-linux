@@ -28,8 +28,9 @@
 
 #define LOW 0
 #define HIGH 1
+#define BOUNCING 20
 
-int last_interrupt_time = 0; 
+int last_interrupt_time = -1; 
 
 // Function to save specific moment in time since epoch
 int interrupt_time() {
@@ -42,7 +43,7 @@ int interrupt_time() {
 void interrupt_service_rutine(struct gpiod_line *lineButton) {
     int current_interrupt_time = interrupt_time();
 	printf("current time - previous time: %d ms\n", (current_interrupt_time-last_interrupt_time));
-    if (current_interrupt_time - last_interrupt_time > 200) {
+    if (current_interrupt_time - last_interrupt_time > BOUNCING || last_interrupt_time == -1) {
 
 		gpiod_line_set_value(lineButton,LOW);
 		printf("Button press is confirmed!\n");
@@ -54,10 +55,8 @@ void interrupt_service_rutine(struct gpiod_line *lineButton) {
 // Function to detect falling edge
 void is_falling_edge(struct gpiod_line_event *event, struct gpiod_line *lineButton) {
 
-	printf("Event type is: %d\n", event->event_type);
     if (event->event_type == 1) {
 
-		printf("is_falling_edge returned true!\n");
 		// In case falling edge, run ISR to handle possible bouncing
         interrupt_service_rutine(lineButton);
     }
