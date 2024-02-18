@@ -182,7 +182,7 @@ int timers_init(void)
 	int err_code;
 
 	//Create timers
-	err_code = makeTimer(&timerServiceID, 0, 80); //100ms
+	err_code = makeTimer(&timerServiceID, 0, 300); //100ms
 	if (err_code != 0) {
 		return err_code;
 	}
