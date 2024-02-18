@@ -18,7 +18,7 @@ void updateFile() {
     // Get timestamp
     time_t currentTime = time(NULL);
     struct tm date = *localtime(&currentTime);
-    fprintf(file, "[LED ON: %d-%02d-%02d %02d:%02d]\n", date.tm_year + 1900, date.tm_mon + 1, date.tm_mday,
+    fprintf(file, "[MOTOR is turned OFF: %d-%02d-%02d %02d:%02d]\n", date.tm_year + 1900, date.tm_mon + 1, date.tm_mday,
             date.tm_hour, date.tm_min);
 
     fclose(file);
@@ -61,7 +61,7 @@ int main()
 	// Update log file for debugging
 	updateFile();
 
-	printf("LED has been turned off! Jippii! URAAAAAS");
+	printf("MOTOR has been turned off!\n\n");
 
 release_line:
 	gpiod_line_release(led_line);

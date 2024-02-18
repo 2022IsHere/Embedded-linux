@@ -6,5 +6,15 @@
 1-59/2 * * * * cd /home/pi/ && ./lab4-ledoff
 
 # cron rules to run the script every 30 minutes
-*/30 * * * * /home/pi/lab4
+*/30 * * * * /home/pi/ && ./lab4-ledon
+0-29/10,40-59/10 * * * * /home/pi/ && ./lab4-ledoff
+
+# cron rules to run for step 4
+# rules excluding september
+*/30 0-3,7-23 1-8,10-12 * * /home/pi/ && ./lab4-ledon
+0-29/10,40-59/10 * 1-8,10-12 * * /home/pi/ && ./lab4-ledoff
+
+# rules for september
+*/15 0-3,7-23 9 * * /home/pi/ && ./lab4-ledon
+10,40,55 * 9 * * /home/pi/ && ./lab4-ledoff
 
