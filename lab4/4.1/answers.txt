@@ -1,0 +1,1 @@
+With 20 ms PWM pulse start: Jitter was 50.20% - 50 % = 0.2%
