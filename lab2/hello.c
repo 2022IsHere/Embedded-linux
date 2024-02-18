@@ -56,7 +56,7 @@ int main () {
 		printf("There was an issue opening the file...\n");
 		return 1;
 	}
-
+	
 	printHello();
 	timeStamp();
 

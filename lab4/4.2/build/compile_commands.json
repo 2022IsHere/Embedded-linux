@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/student/EmbeddedLinux/embedded-linux-labs/lab4/4.2/build",
+  "command": "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/armv8-rpi3-linux-gnueabihf-gcc  -I/var/lib/schroot/chroots/rpi3-bookworm-armhf/usr/local/include -I/var/lib/schroot/chroots/rpi3-bookworm-armhf/usr/include -I/var/lib/schroot/chroots/rpi3-bookworm-armhf/usr/include/arm-linux-gnueabihf  -g   -o CMakeFiles/lab4.2.dir/pwm_with_hw.c.o   -c /home/student/EmbeddedLinux/embedded-linux-labs/lab4/4.2/pwm_with_hw.c",
+  "file": "/home/student/EmbeddedLinux/embedded-linux-labs/lab4/4.2/pwm_with_hw.c"
+},
+{
+  "directory": "/home/student/EmbeddedLinux/embedded-linux-labs/lab4/4.2/build",
+  "command": "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/armv8-rpi3-linux-gnueabihf-gcc  -I/var/lib/schroot/chroots/rpi3-bookworm-armhf/usr/local/include -I/var/lib/schroot/chroots/rpi3-bookworm-armhf/usr/include -I/var/lib/schroot/chroots/rpi3-bookworm-armhf/usr/include/arm-linux-gnueabihf  -g   -o CMakeFiles/lab4.2.dir/timers_init.c.o   -c /home/student/EmbeddedLinux/embedded-linux-labs/lab4/4.2/timers_init.c",
+  "file": "/home/student/EmbeddedLinux/embedded-linux-labs/lab4/4.2/timers_init.c"
+}
+]

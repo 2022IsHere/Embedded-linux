@@ -1,2 +1,15 @@
-**/build/
-.cache
+# Allow Markdown files
+*.md
+
+# Allow Text files
+*.txt
+
+# Allow C source files
+*.c
+
+# Ignore build artifacts
+/build/
+*.o
+*.out
+*.exe
+*.so

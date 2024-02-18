@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/student/EmbeddedLinux/embedded-linux-labs/lab6/build",
+  "command": "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/armv8-rpi3-linux-gnueabihf-gcc  -I/var/lib/schroot/chroots/rpi3-bookworm-armhf/usr/local/include -I/var/lib/schroot/chroots/rpi3-bookworm-armhf/usr/include -I/var/lib/schroot/chroots/rpi3-bookworm-armhf/usr/include/arm-linux-gnueabihf  -g   -o CMakeFiles/lab5.dir/src/event_test_with_threads_debounce.c.o   -c /home/student/EmbeddedLinux/embedded-linux-labs/lab6/src/event_test_with_threads_debounce.c",
+  "file": "/home/student/EmbeddedLinux/embedded-linux-labs/lab6/src/event_test_with_threads_debounce.c"
+}
+]
