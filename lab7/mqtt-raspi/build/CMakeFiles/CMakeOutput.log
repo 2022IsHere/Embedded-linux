@@ -1,0 +1,441 @@
+The system is: Linux - 5.15.0-100-generic - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/armv8-rpi3-linux-gnueabihf-gcc 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/home/student/EmbeddedLinux/embedded-linux-labs/lab7/mqtt-raspi/build/CMakeFiles/3.16.3/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/armv8-rpi3-linux-gnueabihf-g++ 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/home/student/EmbeddedLinux/embedded-linux-labs/lab7/mqtt-raspi/build/CMakeFiles/3.16.3/CompilerIdCXX/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /home/student/EmbeddedLinux/embedded-linux-labs/lab7/mqtt-raspi/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_01a1d/fast && /usr/bin/make -f CMakeFiles/cmTC_01a1d.dir/build.make CMakeFiles/cmTC_01a1d.dir/build
+make[1]: Entering directory '/home/student/EmbeddedLinux/embedded-linux-labs/lab7/mqtt-raspi/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_01a1d.dir/testCCompiler.c.o
+/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/armv8-rpi3-linux-gnueabihf-gcc    -o CMakeFiles/cmTC_01a1d.dir/testCCompiler.c.o   -c /home/student/EmbeddedLinux/embedded-linux-labs/lab7/mqtt-raspi/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_01a1d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_01a1d.dir/link.txt --verbose=1
+/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/armv8-rpi3-linux-gnueabihf-gcc      CMakeFiles/cmTC_01a1d.dir/testCCompiler.c.o  -o cmTC_01a1d 
+make[1]: Leaving directory '/home/student/EmbeddedLinux/embedded-linux-labs/lab7/mqtt-raspi/build/CMakeFiles/CMakeTmp'
+
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/student/EmbeddedLinux/embedded-linux-labs/lab7/mqtt-raspi/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_5ef93/fast && /usr/bin/make -f CMakeFiles/cmTC_5ef93.dir/build.make CMakeFiles/cmTC_5ef93.dir/build
+make[1]: Entering directory '/home/student/EmbeddedLinux/embedded-linux-labs/lab7/mqtt-raspi/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5ef93.dir/CMakeCCompilerABI.c.o
+/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/armv8-rpi3-linux-gnueabihf-gcc   -v -o CMakeFiles/cmTC_5ef93.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.16/Modules/CMakeCCompilerABI.c
+Using built-in specs.
+COLLECT_GCC=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/armv8-rpi3-linux-gnueabihf-gcc
+Target: armv8-rpi3-linux-gnueabihf
+Configured with: /home/develop/.build/armv8-rpi3-linux-gnueabihf/src/gcc/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=armv8-rpi3-linux-gnueabihf --prefix=/home/develop/x-tools/armv8-rpi3-linux-gnueabihf --exec_prefix=/home/develop/x-tools/armv8-rpi3-linux-gnueabihf --with-sysroot=/home/develop/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot --enable-languages=c,c++,fortran --with-cpu=cortex-a53 --with-fpu=neon-fp-armv8 --with-float=hard --with-pkgversion='crosstool-NG UNKNOWN - tttapa/docker-arm-cross-toolchain:armv8-rpi3' --with-bugurl=https://github.com/tttapa/docker-arm-cross-toolchain --enable-__cxa_atexit --disable-libmudflap --enable-libgomp --disable-libssp --enable-libquadmath --enable-libquadmath-support --enable-libsanitizer --disable-libmpx --with-gmp=/home/develop/.build/armv8-rpi3-linux-gnueabihf/buildtools --with-mpfr=/home/develop/.build/armv8-rpi3-linux-gnueabihf/buildtools --with-mpc=/home/develop/.build/armv8-rpi3-linux-gnueabihf/buildtools --with-isl=/home/develop/.build/armv8-rpi3-linux-gnueabihf/buildtools --enable-lto --enable-threads=posix --enable-target-optspace --enable-plugin --enable-gold --disable-nls --disable-multilib --with-local-prefix=/home/develop/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot --enable-long-long --enable-multiarch --enable-libstdcxx-backtrace=yes
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 13.2.0 (crosstool-NG UNKNOWN - tttapa/docker-arm-cross-toolchain:armv8-rpi3) 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_5ef93.dir/CMakeCCompilerABI.c.o' '-c' '-mcpu=cortex-a53' '-mfloat-abi=hard' '-mfpu=neon-fp-armv8' '-mtls-dialect=gnu' '-marm' '-mlibarch=armv8-a+crc+simd' '-march=armv8-a+crc+simd' '-dumpdir' 'CMakeFiles/cmTC_5ef93.dir/'
+ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/cc1 -quiet -v -imultilib . -imultiarch arm-linux-gnueabihf -iprefix /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/ -isysroot /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot /usr/share/cmake-3.16/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_5ef93.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mcpu=cortex-a53 -mfloat-abi=hard -mfpu=neon-fp-armv8 -mtls-dialect=gnu -marm -mlibarch=armv8-a+crc+simd -march=armv8-a+crc+simd -version -o /tmp/cclvBVQo.s
+GNU C17 (crosstool-NG UNKNOWN - tttapa/docker-arm-cross-toolchain:armv8-rpi3) version 13.2.0 (armv8-rpi3-linux-gnueabihf)
+	compiled by GNU C version 9.4.0, GMP version 6.2.1, MPFR version 4.2.1, MPC version 1.3.1, isl version isl-0.26-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include-fixed/arm-linux-gnueabihf"
+ignoring duplicate directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/../../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include"
+ignoring nonexistent directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/home/develop/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot/include/arm-linux-gnueabihf"
+ignoring nonexistent directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/home/develop/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot/include"
+ignoring nonexistent directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/../../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include-fixed/arm-linux-gnueabihf"
+ignoring duplicate directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/../../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include-fixed"
+ignoring duplicate directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/../../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/include"
+ignoring nonexistent directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include
+ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include-fixed
+ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/include
+ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/include
+End of search list.
+Compiler executable checksum: 40907a2c4d37399a02a8ba840ece3f30
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_5ef93.dir/CMakeCCompilerABI.c.o' '-c' '-mcpu=cortex-a53' '-mfloat-abi=hard' '-mfpu=neon-fp-armv8' '-mtls-dialect=gnu' '-marm' '-mlibarch=armv8-a+crc+simd' '-march=armv8-a+crc+simd' '-dumpdir' 'CMakeFiles/cmTC_5ef93.dir/'
+ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/bin/as -v -march=armv8-a+crc+simd -mfloat-abi=hard -mfpu=neon-fp-armv8 -meabi=5 -o CMakeFiles/cmTC_5ef93.dir/CMakeCCompilerABI.c.o /tmp/cclvBVQo.s
+GNU assembler version 2.40 (armv8-rpi3-linux-gnueabihf) using BFD version (crosstool-NG UNKNOWN - tttapa/docker-arm-cross-toolchain:armv8-rpi3) 2.40
+COMPILER_PATH=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/bin/
+LIBRARY_PATH=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/lib/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/lib/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_5ef93.dir/CMakeCCompilerABI.c.o' '-c' '-mcpu=cortex-a53' '-mfloat-abi=hard' '-mfpu=neon-fp-armv8' '-mtls-dialect=gnu' '-marm' '-mlibarch=armv8-a+crc+simd' '-march=armv8-a+crc+simd' '-dumpdir' 'CMakeFiles/cmTC_5ef93.dir/CMakeCCompilerABI.c.'
+Linking C executable cmTC_5ef93
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5ef93.dir/link.txt --verbose=1
+/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/armv8-rpi3-linux-gnueabihf-gcc     -v CMakeFiles/cmTC_5ef93.dir/CMakeCCompilerABI.c.o  -o cmTC_5ef93 
+Using built-in specs.
+COLLECT_GCC=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/armv8-rpi3-linux-gnueabihf-gcc
+COLLECT_LTO_WRAPPER=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/lto-wrapper
+Target: armv8-rpi3-linux-gnueabihf
+Configured with: /home/develop/.build/armv8-rpi3-linux-gnueabihf/src/gcc/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=armv8-rpi3-linux-gnueabihf --prefix=/home/develop/x-tools/armv8-rpi3-linux-gnueabihf --exec_prefix=/home/develop/x-tools/armv8-rpi3-linux-gnueabihf --with-sysroot=/home/develop/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot --enable-languages=c,c++,fortran --with-cpu=cortex-a53 --with-fpu=neon-fp-armv8 --with-float=hard --with-pkgversion='crosstool-NG UNKNOWN - tttapa/docker-arm-cross-toolchain:armv8-rpi3' --with-bugurl=https://github.com/tttapa/docker-arm-cross-toolchain --enable-__cxa_atexit --disable-libmudflap --enable-libgomp --disable-libssp --enable-libquadmath --enable-libquadmath-support --enable-libsanitizer --disable-libmpx --with-gmp=/home/develop/.build/armv8-rpi3-linux-gnueabihf/buildtools --with-mpfr=/home/develop/.build/armv8-rpi3-linux-gnueabihf/buildtools --with-mpc=/home/develop/.build/armv8-rpi3-linux-gnueabihf/buildtools --with-isl=/home/develop/.build/armv8-rpi3-linux-gnueabihf/buildtools --enable-lto --enable-threads=posix --enable-target-optspace --enable-plugin --enable-gold --disable-nls --disable-multilib --with-local-prefix=/home/develop/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot --enable-long-long --enable-multiarch --enable-libstdcxx-backtrace=yes
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 13.2.0 (crosstool-NG UNKNOWN - tttapa/docker-arm-cross-toolchain:armv8-rpi3) 
+COMPILER_PATH=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/bin/
+LIBRARY_PATH=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/lib/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/lib/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_5ef93' '-mcpu=cortex-a53' '-mfloat-abi=hard' '-mfpu=neon-fp-armv8' '-mtls-dialect=gnu' '-marm' '-mlibarch=armv8-a+crc+simd' '-march=armv8-a+crc+simd' '-dumpdir' 'cmTC_5ef93.'
+ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/collect2 -plugin /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/liblto_plugin.so -plugin-opt=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccOyJEfO.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot --eh-frame-hdr -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -o cmTC_5ef93 /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib/crt1.o /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib/crti.o /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/crtbegin.o -L/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0 -L/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc -L/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/lib -L/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/lib -L/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib CMakeFiles/cmTC_5ef93.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/crtend.o /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_5ef93' '-mcpu=cortex-a53' '-mfloat-abi=hard' '-mfpu=neon-fp-armv8' '-mtls-dialect=gnu' '-marm' '-mlibarch=armv8-a+crc+simd' '-march=armv8-a+crc+simd' '-dumpdir' 'cmTC_5ef93.'
+make[1]: Leaving directory '/home/student/EmbeddedLinux/embedded-linux-labs/lab7/mqtt-raspi/build/CMakeFiles/CMakeTmp'
+
+
+
+Parsed C implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include]
+    add: [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include-fixed]
+    add: [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/include]
+    add: [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/include]
+  end of search list found
+  collapse include dir [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include] ==> [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include]
+  collapse include dir [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include-fixed] ==> [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include-fixed]
+  collapse include dir [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/include] ==> [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/include]
+  collapse include dir [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/include] ==> [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot/usr/include]
+  implicit include dirs: [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include;/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include-fixed;/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/include;/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot/usr/include]
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/student/EmbeddedLinux/embedded-linux-labs/lab7/mqtt-raspi/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/make cmTC_5ef93/fast && /usr/bin/make -f CMakeFiles/cmTC_5ef93.dir/build.make CMakeFiles/cmTC_5ef93.dir/build]
+  ignore line: [make[1]: Entering directory '/home/student/EmbeddedLinux/embedded-linux-labs/lab7/mqtt-raspi/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_5ef93.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/armv8-rpi3-linux-gnueabihf-gcc   -v -o CMakeFiles/cmTC_5ef93.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.16/Modules/CMakeCCompilerABI.c]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/armv8-rpi3-linux-gnueabihf-gcc]
+  ignore line: [Target: armv8-rpi3-linux-gnueabihf]
+  ignore line: [Configured with: /home/develop/.build/armv8-rpi3-linux-gnueabihf/src/gcc/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=armv8-rpi3-linux-gnueabihf --prefix=/home/develop/x-tools/armv8-rpi3-linux-gnueabihf --exec_prefix=/home/develop/x-tools/armv8-rpi3-linux-gnueabihf --with-sysroot=/home/develop/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot --enable-languages=c c++ fortran --with-cpu=cortex-a53 --with-fpu=neon-fp-armv8 --with-float=hard --with-pkgversion='crosstool-NG UNKNOWN - tttapa/docker-arm-cross-toolchain:armv8-rpi3' --with-bugurl=https://github.com/tttapa/docker-arm-cross-toolchain --enable-__cxa_atexit --disable-libmudflap --enable-libgomp --disable-libssp --enable-libquadmath --enable-libquadmath-support --enable-libsanitizer --disable-libmpx --with-gmp=/home/develop/.build/armv8-rpi3-linux-gnueabihf/buildtools --with-mpfr=/home/develop/.build/armv8-rpi3-linux-gnueabihf/buildtools --with-mpc=/home/develop/.build/armv8-rpi3-linux-gnueabihf/buildtools --with-isl=/home/develop/.build/armv8-rpi3-linux-gnueabihf/buildtools --enable-lto --enable-threads=posix --enable-target-optspace --enable-plugin --enable-gold --disable-nls --disable-multilib --with-local-prefix=/home/develop/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot --enable-long-long --enable-multiarch --enable-libstdcxx-backtrace=yes]
+  ignore line: [Thread model: posix]
+  ignore line: [Supported LTO compression algorithms: zlib zstd]
+  ignore line: [gcc version 13.2.0 (crosstool-NG UNKNOWN - tttapa/docker-arm-cross-toolchain:armv8-rpi3) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_5ef93.dir/CMakeCCompilerABI.c.o' '-c' '-mcpu=cortex-a53' '-mfloat-abi=hard' '-mfpu=neon-fp-armv8' '-mtls-dialect=gnu' '-marm' '-mlibarch=armv8-a+crc+simd' '-march=armv8-a+crc+simd' '-dumpdir' 'CMakeFiles/cmTC_5ef93.dir/']
+  ignore line: [ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/cc1 -quiet -v -imultilib . -imultiarch arm-linux-gnueabihf -iprefix /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/ -isysroot /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot /usr/share/cmake-3.16/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_5ef93.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mcpu=cortex-a53 -mfloat-abi=hard -mfpu=neon-fp-armv8 -mtls-dialect=gnu -marm -mlibarch=armv8-a+crc+simd -march=armv8-a+crc+simd -version -o /tmp/cclvBVQo.s]
+  ignore line: [GNU C17 (crosstool-NG UNKNOWN - tttapa/docker-arm-cross-toolchain:armv8-rpi3) version 13.2.0 (armv8-rpi3-linux-gnueabihf)]
+  ignore line: [	compiled by GNU C version 9.4.0  GMP version 6.2.1  MPFR version 4.2.1  MPC version 1.3.1  isl version isl-0.26-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring nonexistent directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include-fixed/arm-linux-gnueabihf"]
+  ignore line: [ignoring duplicate directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/../../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include"]
+  ignore line: [ignoring nonexistent directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/home/develop/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot/include/arm-linux-gnueabihf"]
+  ignore line: [ignoring nonexistent directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/home/develop/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot/include"]
+  ignore line: [ignoring nonexistent directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/../../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include-fixed/arm-linux-gnueabihf"]
+  ignore line: [ignoring duplicate directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/../../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include-fixed"]
+  ignore line: [ignoring duplicate directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/../../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/include"]
+  ignore line: [ignoring nonexistent directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include]
+  ignore line: [ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include-fixed]
+  ignore line: [ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/include]
+  ignore line: [ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/include]
+  ignore line: [End of search list.]
+  ignore line: [Compiler executable checksum: 40907a2c4d37399a02a8ba840ece3f30]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_5ef93.dir/CMakeCCompilerABI.c.o' '-c' '-mcpu=cortex-a53' '-mfloat-abi=hard' '-mfpu=neon-fp-armv8' '-mtls-dialect=gnu' '-marm' '-mlibarch=armv8-a+crc+simd' '-march=armv8-a+crc+simd' '-dumpdir' 'CMakeFiles/cmTC_5ef93.dir/']
+  ignore line: [ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/bin/as -v -march=armv8-a+crc+simd -mfloat-abi=hard -mfpu=neon-fp-armv8 -meabi=5 -o CMakeFiles/cmTC_5ef93.dir/CMakeCCompilerABI.c.o /tmp/cclvBVQo.s]
+  ignore line: [GNU assembler version 2.40 (armv8-rpi3-linux-gnueabihf) using BFD version (crosstool-NG UNKNOWN - tttapa/docker-arm-cross-toolchain:armv8-rpi3) 2.40]
+  ignore line: [COMPILER_PATH=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/bin/]
+  ignore line: [LIBRARY_PATH=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/lib/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/lib/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_5ef93.dir/CMakeCCompilerABI.c.o' '-c' '-mcpu=cortex-a53' '-mfloat-abi=hard' '-mfpu=neon-fp-armv8' '-mtls-dialect=gnu' '-marm' '-mlibarch=armv8-a+crc+simd' '-march=armv8-a+crc+simd' '-dumpdir' 'CMakeFiles/cmTC_5ef93.dir/CMakeCCompilerABI.c.']
+  ignore line: [Linking C executable cmTC_5ef93]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5ef93.dir/link.txt --verbose=1]
+  ignore line: [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/armv8-rpi3-linux-gnueabihf-gcc     -v CMakeFiles/cmTC_5ef93.dir/CMakeCCompilerABI.c.o  -o cmTC_5ef93 ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/armv8-rpi3-linux-gnueabihf-gcc]
+  ignore line: [COLLECT_LTO_WRAPPER=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/lto-wrapper]
+  ignore line: [Target: armv8-rpi3-linux-gnueabihf]
+  ignore line: [Configured with: /home/develop/.build/armv8-rpi3-linux-gnueabihf/src/gcc/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=armv8-rpi3-linux-gnueabihf --prefix=/home/develop/x-tools/armv8-rpi3-linux-gnueabihf --exec_prefix=/home/develop/x-tools/armv8-rpi3-linux-gnueabihf --with-sysroot=/home/develop/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot --enable-languages=c c++ fortran --with-cpu=cortex-a53 --with-fpu=neon-fp-armv8 --with-float=hard --with-pkgversion='crosstool-NG UNKNOWN - tttapa/docker-arm-cross-toolchain:armv8-rpi3' --with-bugurl=https://github.com/tttapa/docker-arm-cross-toolchain --enable-__cxa_atexit --disable-libmudflap --enable-libgomp --disable-libssp --enable-libquadmath --enable-libquadmath-support --enable-libsanitizer --disable-libmpx --with-gmp=/home/develop/.build/armv8-rpi3-linux-gnueabihf/buildtools --with-mpfr=/home/develop/.build/armv8-rpi3-linux-gnueabihf/buildtools --with-mpc=/home/develop/.build/armv8-rpi3-linux-gnueabihf/buildtools --with-isl=/home/develop/.build/armv8-rpi3-linux-gnueabihf/buildtools --enable-lto --enable-threads=posix --enable-target-optspace --enable-plugin --enable-gold --disable-nls --disable-multilib --with-local-prefix=/home/develop/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot --enable-long-long --enable-multiarch --enable-libstdcxx-backtrace=yes]
+  ignore line: [Thread model: posix]
+  ignore line: [Supported LTO compression algorithms: zlib zstd]
+  ignore line: [gcc version 13.2.0 (crosstool-NG UNKNOWN - tttapa/docker-arm-cross-toolchain:armv8-rpi3) ]
+  ignore line: [COMPILER_PATH=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/bin/]
+  ignore line: [LIBRARY_PATH=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/lib/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/lib/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_5ef93' '-mcpu=cortex-a53' '-mfloat-abi=hard' '-mfpu=neon-fp-armv8' '-mtls-dialect=gnu' '-marm' '-mlibarch=armv8-a+crc+simd' '-march=armv8-a+crc+simd' '-dumpdir' 'cmTC_5ef93.']
+  link line: [ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/collect2 -plugin /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/liblto_plugin.so -plugin-opt=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccOyJEfO.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot --eh-frame-hdr -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -o cmTC_5ef93 /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib/crt1.o /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib/crti.o /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/crtbegin.o -L/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0 -L/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc -L/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/lib -L/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/lib -L/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib CMakeFiles/cmTC_5ef93.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/crtend.o /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib/crtn.o]
+    arg [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccOyJEfO.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [--sysroot=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib/ld-linux-armhf.so.3] ==> ignore
+    arg [-X] ==> ignore
+    arg [-m] ==> ignore
+    arg [armelf_linux_eabi] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_5ef93] ==> ignore
+    arg [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib/crt1.o] ==> ignore
+    arg [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib/crti.o] ==> ignore
+    arg [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/crtbegin.o] ==> ignore
+    arg [-L/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0] ==> dir [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0]
+    arg [-L/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc] ==> dir [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc]
+    arg [-L/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/lib] ==> dir [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/lib]
+    arg [-L/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/lib] ==> dir [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/lib]
+    arg [-L/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib] ==> dir [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib]
+    arg [CMakeFiles/cmTC_5ef93.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--push-state] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--pop-state] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--push-state] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--pop-state] ==> ignore
+    arg [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/crtend.o] ==> ignore
+    arg [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib/crtn.o] ==> ignore
+  collapse library dir [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0] ==> [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0]
+  collapse library dir [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc] ==> [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/lib/gcc]
+  collapse library dir [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/lib] ==> [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/lib]
+  collapse library dir [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/lib] ==> [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot/lib]
+  collapse library dir [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib] ==> [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot/usr/lib]
+  implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+  implicit dirs: [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0;/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/lib/gcc;/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/lib;/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot/lib;/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot/usr/lib]
+  implicit fwks: []
+
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /home/student/EmbeddedLinux/embedded-linux-labs/lab7/mqtt-raspi/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_28c5c/fast && /usr/bin/make -f CMakeFiles/cmTC_28c5c.dir/build.make CMakeFiles/cmTC_28c5c.dir/build
+make[1]: Entering directory '/home/student/EmbeddedLinux/embedded-linux-labs/lab7/mqtt-raspi/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_28c5c.dir/testCXXCompiler.cxx.o
+/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/armv8-rpi3-linux-gnueabihf-g++     -o CMakeFiles/cmTC_28c5c.dir/testCXXCompiler.cxx.o -c /home/student/EmbeddedLinux/embedded-linux-labs/lab7/mqtt-raspi/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_28c5c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_28c5c.dir/link.txt --verbose=1
+/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/armv8-rpi3-linux-gnueabihf-g++       CMakeFiles/cmTC_28c5c.dir/testCXXCompiler.cxx.o  -o cmTC_28c5c 
+make[1]: Leaving directory '/home/student/EmbeddedLinux/embedded-linux-labs/lab7/mqtt-raspi/build/CMakeFiles/CMakeTmp'
+
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /home/student/EmbeddedLinux/embedded-linux-labs/lab7/mqtt-raspi/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_a5062/fast && /usr/bin/make -f CMakeFiles/cmTC_a5062.dir/build.make CMakeFiles/cmTC_a5062.dir/build
+make[1]: Entering directory '/home/student/EmbeddedLinux/embedded-linux-labs/lab7/mqtt-raspi/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_a5062.dir/CMakeCXXCompilerABI.cpp.o
+/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/armv8-rpi3-linux-gnueabihf-g++    -v -o CMakeFiles/cmTC_a5062.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp
+Using built-in specs.
+COLLECT_GCC=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/armv8-rpi3-linux-gnueabihf-g++
+Target: armv8-rpi3-linux-gnueabihf
+Configured with: /home/develop/.build/armv8-rpi3-linux-gnueabihf/src/gcc/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=armv8-rpi3-linux-gnueabihf --prefix=/home/develop/x-tools/armv8-rpi3-linux-gnueabihf --exec_prefix=/home/develop/x-tools/armv8-rpi3-linux-gnueabihf --with-sysroot=/home/develop/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot --enable-languages=c,c++,fortran --with-cpu=cortex-a53 --with-fpu=neon-fp-armv8 --with-float=hard --with-pkgversion='crosstool-NG UNKNOWN - tttapa/docker-arm-cross-toolchain:armv8-rpi3' --with-bugurl=https://github.com/tttapa/docker-arm-cross-toolchain --enable-__cxa_atexit --disable-libmudflap --enable-libgomp --disable-libssp --enable-libquadmath --enable-libquadmath-support --enable-libsanitizer --disable-libmpx --with-gmp=/home/develop/.build/armv8-rpi3-linux-gnueabihf/buildtools --with-mpfr=/home/develop/.build/armv8-rpi3-linux-gnueabihf/buildtools --with-mpc=/home/develop/.build/armv8-rpi3-linux-gnueabihf/buildtools --with-isl=/home/develop/.build/armv8-rpi3-linux-gnueabihf/buildtools --enable-lto --enable-threads=posix --enable-target-optspace --enable-plugin --enable-gold --disable-nls --disable-multilib --with-local-prefix=/home/develop/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot --enable-long-long --enable-multiarch --enable-libstdcxx-backtrace=yes
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 13.2.0 (crosstool-NG UNKNOWN - tttapa/docker-arm-cross-toolchain:armv8-rpi3) 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a5062.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mcpu=cortex-a53' '-mfloat-abi=hard' '-mfpu=neon-fp-armv8' '-mtls-dialect=gnu' '-marm' '-mlibarch=armv8-a+crc+simd' '-march=armv8-a+crc+simd' '-dumpdir' 'CMakeFiles/cmTC_a5062.dir/'
+ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/cc1plus -quiet -v -imultilib . -imultiarch arm-linux-gnueabihf -iprefix /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/ -isysroot /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot -D_GNU_SOURCE /usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_a5062.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mcpu=cortex-a53 -mfloat-abi=hard -mfpu=neon-fp-armv8 -mtls-dialect=gnu -marm -mlibarch=armv8-a+crc+simd -march=armv8-a+crc+simd -version -o /tmp/ccpSDsbj.s
+GNU C++17 (crosstool-NG UNKNOWN - tttapa/docker-arm-cross-toolchain:armv8-rpi3) version 13.2.0 (armv8-rpi3-linux-gnueabihf)
+	compiled by GNU C version 9.4.0, GMP version 6.2.1, MPFR version 4.2.1, MPC version 1.3.1, isl version isl-0.26-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include-fixed/arm-linux-gnueabihf"
+ignoring duplicate directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/../../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/include/c++/13.2.0"
+ignoring duplicate directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/../../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/include/c++/13.2.0/armv8-rpi3-linux-gnueabihf/."
+ignoring duplicate directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/../../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/include/c++/13.2.0/backward"
+ignoring duplicate directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/../../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include"
+ignoring nonexistent directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/home/develop/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot/include/arm-linux-gnueabihf"
+ignoring nonexistent directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/home/develop/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot/include"
+ignoring nonexistent directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/../../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include-fixed/arm-linux-gnueabihf"
+ignoring duplicate directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/../../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include-fixed"
+ignoring duplicate directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/../../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/include"
+ignoring nonexistent directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/include/c++/13.2.0
+ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/include/c++/13.2.0/armv8-rpi3-linux-gnueabihf/.
+ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/include/c++/13.2.0/backward
+ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include
+ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include-fixed
+ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/include
+ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/include
+End of search list.
+Compiler executable checksum: 51f1a298f055c0e15e3c6c68868d8583
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a5062.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mcpu=cortex-a53' '-mfloat-abi=hard' '-mfpu=neon-fp-armv8' '-mtls-dialect=gnu' '-marm' '-mlibarch=armv8-a+crc+simd' '-march=armv8-a+crc+simd' '-dumpdir' 'CMakeFiles/cmTC_a5062.dir/'
+ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/bin/as -v -march=armv8-a+crc+simd -mfloat-abi=hard -mfpu=neon-fp-armv8 -meabi=5 -o CMakeFiles/cmTC_a5062.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccpSDsbj.s
+GNU assembler version 2.40 (armv8-rpi3-linux-gnueabihf) using BFD version (crosstool-NG UNKNOWN - tttapa/docker-arm-cross-toolchain:armv8-rpi3) 2.40
+COMPILER_PATH=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/bin/
+LIBRARY_PATH=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/lib/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/lib/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a5062.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mcpu=cortex-a53' '-mfloat-abi=hard' '-mfpu=neon-fp-armv8' '-mtls-dialect=gnu' '-marm' '-mlibarch=armv8-a+crc+simd' '-march=armv8-a+crc+simd' '-dumpdir' 'CMakeFiles/cmTC_a5062.dir/CMakeCXXCompilerABI.cpp.'
+Linking CXX executable cmTC_a5062
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a5062.dir/link.txt --verbose=1
+/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/armv8-rpi3-linux-gnueabihf-g++      -v CMakeFiles/cmTC_a5062.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_a5062 
+Using built-in specs.
+COLLECT_GCC=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/armv8-rpi3-linux-gnueabihf-g++
+COLLECT_LTO_WRAPPER=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/lto-wrapper
+Target: armv8-rpi3-linux-gnueabihf
+Configured with: /home/develop/.build/armv8-rpi3-linux-gnueabihf/src/gcc/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=armv8-rpi3-linux-gnueabihf --prefix=/home/develop/x-tools/armv8-rpi3-linux-gnueabihf --exec_prefix=/home/develop/x-tools/armv8-rpi3-linux-gnueabihf --with-sysroot=/home/develop/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot --enable-languages=c,c++,fortran --with-cpu=cortex-a53 --with-fpu=neon-fp-armv8 --with-float=hard --with-pkgversion='crosstool-NG UNKNOWN - tttapa/docker-arm-cross-toolchain:armv8-rpi3' --with-bugurl=https://github.com/tttapa/docker-arm-cross-toolchain --enable-__cxa_atexit --disable-libmudflap --enable-libgomp --disable-libssp --enable-libquadmath --enable-libquadmath-support --enable-libsanitizer --disable-libmpx --with-gmp=/home/develop/.build/armv8-rpi3-linux-gnueabihf/buildtools --with-mpfr=/home/develop/.build/armv8-rpi3-linux-gnueabihf/buildtools --with-mpc=/home/develop/.build/armv8-rpi3-linux-gnueabihf/buildtools --with-isl=/home/develop/.build/armv8-rpi3-linux-gnueabihf/buildtools --enable-lto --enable-threads=posix --enable-target-optspace --enable-plugin --enable-gold --disable-nls --disable-multilib --with-local-prefix=/home/develop/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot --enable-long-long --enable-multiarch --enable-libstdcxx-backtrace=yes
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 13.2.0 (crosstool-NG UNKNOWN - tttapa/docker-arm-cross-toolchain:armv8-rpi3) 
+COMPILER_PATH=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/bin/
+LIBRARY_PATH=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/lib/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/lib/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_a5062' '-shared-libgcc' '-mcpu=cortex-a53' '-mfloat-abi=hard' '-mfpu=neon-fp-armv8' '-mtls-dialect=gnu' '-marm' '-mlibarch=armv8-a+crc+simd' '-march=armv8-a+crc+simd' '-dumpdir' 'cmTC_a5062.'
+ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/collect2 -plugin /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/liblto_plugin.so -plugin-opt=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccHX8VxN.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot --eh-frame-hdr -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -o cmTC_a5062 /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib/crt1.o /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib/crti.o /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/crtbegin.o -L/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0 -L/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc -L/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/lib -L/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/lib -L/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib CMakeFiles/cmTC_a5062.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/crtend.o /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_a5062' '-shared-libgcc' '-mcpu=cortex-a53' '-mfloat-abi=hard' '-mfpu=neon-fp-armv8' '-mtls-dialect=gnu' '-marm' '-mlibarch=armv8-a+crc+simd' '-march=armv8-a+crc+simd' '-dumpdir' 'cmTC_a5062.'
+make[1]: Leaving directory '/home/student/EmbeddedLinux/embedded-linux-labs/lab7/mqtt-raspi/build/CMakeFiles/CMakeTmp'
+
+
+
+Parsed CXX implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/include/c++/13.2.0]
+    add: [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/include/c++/13.2.0/armv8-rpi3-linux-gnueabihf/.]
+    add: [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/include/c++/13.2.0/backward]
+    add: [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include]
+    add: [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include-fixed]
+    add: [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/include]
+    add: [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/include]
+  end of search list found
+  collapse include dir [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/include/c++/13.2.0] ==> [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/include/c++/13.2.0]
+  collapse include dir [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/include/c++/13.2.0/armv8-rpi3-linux-gnueabihf/.] ==> [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/include/c++/13.2.0/armv8-rpi3-linux-gnueabihf]
+  collapse include dir [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/include/c++/13.2.0/backward] ==> [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/include/c++/13.2.0/backward]
+  collapse include dir [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include] ==> [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include]
+  collapse include dir [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include-fixed] ==> [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include-fixed]
+  collapse include dir [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/include] ==> [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/include]
+  collapse include dir [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/include] ==> [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot/usr/include]
+  implicit include dirs: [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/include/c++/13.2.0;/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/include/c++/13.2.0/armv8-rpi3-linux-gnueabihf;/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/include/c++/13.2.0/backward;/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include;/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include-fixed;/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/include;/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot/usr/include]
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/student/EmbeddedLinux/embedded-linux-labs/lab7/mqtt-raspi/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/make cmTC_a5062/fast && /usr/bin/make -f CMakeFiles/cmTC_a5062.dir/build.make CMakeFiles/cmTC_a5062.dir/build]
+  ignore line: [make[1]: Entering directory '/home/student/EmbeddedLinux/embedded-linux-labs/lab7/mqtt-raspi/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_a5062.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/armv8-rpi3-linux-gnueabihf-g++    -v -o CMakeFiles/cmTC_a5062.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/armv8-rpi3-linux-gnueabihf-g++]
+  ignore line: [Target: armv8-rpi3-linux-gnueabihf]
+  ignore line: [Configured with: /home/develop/.build/armv8-rpi3-linux-gnueabihf/src/gcc/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=armv8-rpi3-linux-gnueabihf --prefix=/home/develop/x-tools/armv8-rpi3-linux-gnueabihf --exec_prefix=/home/develop/x-tools/armv8-rpi3-linux-gnueabihf --with-sysroot=/home/develop/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot --enable-languages=c c++ fortran --with-cpu=cortex-a53 --with-fpu=neon-fp-armv8 --with-float=hard --with-pkgversion='crosstool-NG UNKNOWN - tttapa/docker-arm-cross-toolchain:armv8-rpi3' --with-bugurl=https://github.com/tttapa/docker-arm-cross-toolchain --enable-__cxa_atexit --disable-libmudflap --enable-libgomp --disable-libssp --enable-libquadmath --enable-libquadmath-support --enable-libsanitizer --disable-libmpx --with-gmp=/home/develop/.build/armv8-rpi3-linux-gnueabihf/buildtools --with-mpfr=/home/develop/.build/armv8-rpi3-linux-gnueabihf/buildtools --with-mpc=/home/develop/.build/armv8-rpi3-linux-gnueabihf/buildtools --with-isl=/home/develop/.build/armv8-rpi3-linux-gnueabihf/buildtools --enable-lto --enable-threads=posix --enable-target-optspace --enable-plugin --enable-gold --disable-nls --disable-multilib --with-local-prefix=/home/develop/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot --enable-long-long --enable-multiarch --enable-libstdcxx-backtrace=yes]
+  ignore line: [Thread model: posix]
+  ignore line: [Supported LTO compression algorithms: zlib zstd]
+  ignore line: [gcc version 13.2.0 (crosstool-NG UNKNOWN - tttapa/docker-arm-cross-toolchain:armv8-rpi3) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a5062.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mcpu=cortex-a53' '-mfloat-abi=hard' '-mfpu=neon-fp-armv8' '-mtls-dialect=gnu' '-marm' '-mlibarch=armv8-a+crc+simd' '-march=armv8-a+crc+simd' '-dumpdir' 'CMakeFiles/cmTC_a5062.dir/']
+  ignore line: [ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/cc1plus -quiet -v -imultilib . -imultiarch arm-linux-gnueabihf -iprefix /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/ -isysroot /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot -D_GNU_SOURCE /usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_a5062.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mcpu=cortex-a53 -mfloat-abi=hard -mfpu=neon-fp-armv8 -mtls-dialect=gnu -marm -mlibarch=armv8-a+crc+simd -march=armv8-a+crc+simd -version -o /tmp/ccpSDsbj.s]
+  ignore line: [GNU C++17 (crosstool-NG UNKNOWN - tttapa/docker-arm-cross-toolchain:armv8-rpi3) version 13.2.0 (armv8-rpi3-linux-gnueabihf)]
+  ignore line: [	compiled by GNU C version 9.4.0  GMP version 6.2.1  MPFR version 4.2.1  MPC version 1.3.1  isl version isl-0.26-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring nonexistent directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include-fixed/arm-linux-gnueabihf"]
+  ignore line: [ignoring duplicate directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/../../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/include/c++/13.2.0"]
+  ignore line: [ignoring duplicate directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/../../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/include/c++/13.2.0/armv8-rpi3-linux-gnueabihf/."]
+  ignore line: [ignoring duplicate directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/../../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/include/c++/13.2.0/backward"]
+  ignore line: [ignoring duplicate directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/../../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include"]
+  ignore line: [ignoring nonexistent directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/home/develop/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot/include/arm-linux-gnueabihf"]
+  ignore line: [ignoring nonexistent directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/home/develop/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot/include"]
+  ignore line: [ignoring nonexistent directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/../../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include-fixed/arm-linux-gnueabihf"]
+  ignore line: [ignoring duplicate directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/../../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include-fixed"]
+  ignore line: [ignoring duplicate directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/../../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/include"]
+  ignore line: [ignoring nonexistent directory "/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/include/c++/13.2.0]
+  ignore line: [ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/include/c++/13.2.0/armv8-rpi3-linux-gnueabihf/.]
+  ignore line: [ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/include/c++/13.2.0/backward]
+  ignore line: [ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include]
+  ignore line: [ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/include-fixed]
+  ignore line: [ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/include]
+  ignore line: [ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/include]
+  ignore line: [End of search list.]
+  ignore line: [Compiler executable checksum: 51f1a298f055c0e15e3c6c68868d8583]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a5062.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mcpu=cortex-a53' '-mfloat-abi=hard' '-mfpu=neon-fp-armv8' '-mtls-dialect=gnu' '-marm' '-mlibarch=armv8-a+crc+simd' '-march=armv8-a+crc+simd' '-dumpdir' 'CMakeFiles/cmTC_a5062.dir/']
+  ignore line: [ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/bin/as -v -march=armv8-a+crc+simd -mfloat-abi=hard -mfpu=neon-fp-armv8 -meabi=5 -o CMakeFiles/cmTC_a5062.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccpSDsbj.s]
+  ignore line: [GNU assembler version 2.40 (armv8-rpi3-linux-gnueabihf) using BFD version (crosstool-NG UNKNOWN - tttapa/docker-arm-cross-toolchain:armv8-rpi3) 2.40]
+  ignore line: [COMPILER_PATH=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/bin/]
+  ignore line: [LIBRARY_PATH=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/lib/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/lib/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a5062.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mcpu=cortex-a53' '-mfloat-abi=hard' '-mfpu=neon-fp-armv8' '-mtls-dialect=gnu' '-marm' '-mlibarch=armv8-a+crc+simd' '-march=armv8-a+crc+simd' '-dumpdir' 'CMakeFiles/cmTC_a5062.dir/CMakeCXXCompilerABI.cpp.']
+  ignore line: [Linking CXX executable cmTC_a5062]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a5062.dir/link.txt --verbose=1]
+  ignore line: [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/armv8-rpi3-linux-gnueabihf-g++      -v CMakeFiles/cmTC_a5062.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_a5062 ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/armv8-rpi3-linux-gnueabihf-g++]
+  ignore line: [COLLECT_LTO_WRAPPER=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/lto-wrapper]
+  ignore line: [Target: armv8-rpi3-linux-gnueabihf]
+  ignore line: [Configured with: /home/develop/.build/armv8-rpi3-linux-gnueabihf/src/gcc/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=armv8-rpi3-linux-gnueabihf --prefix=/home/develop/x-tools/armv8-rpi3-linux-gnueabihf --exec_prefix=/home/develop/x-tools/armv8-rpi3-linux-gnueabihf --with-sysroot=/home/develop/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot --enable-languages=c c++ fortran --with-cpu=cortex-a53 --with-fpu=neon-fp-armv8 --with-float=hard --with-pkgversion='crosstool-NG UNKNOWN - tttapa/docker-arm-cross-toolchain:armv8-rpi3' --with-bugurl=https://github.com/tttapa/docker-arm-cross-toolchain --enable-__cxa_atexit --disable-libmudflap --enable-libgomp --disable-libssp --enable-libquadmath --enable-libquadmath-support --enable-libsanitizer --disable-libmpx --with-gmp=/home/develop/.build/armv8-rpi3-linux-gnueabihf/buildtools --with-mpfr=/home/develop/.build/armv8-rpi3-linux-gnueabihf/buildtools --with-mpc=/home/develop/.build/armv8-rpi3-linux-gnueabihf/buildtools --with-isl=/home/develop/.build/armv8-rpi3-linux-gnueabihf/buildtools --enable-lto --enable-threads=posix --enable-target-optspace --enable-plugin --enable-gold --disable-nls --disable-multilib --with-local-prefix=/home/develop/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot --enable-long-long --enable-multiarch --enable-libstdcxx-backtrace=yes]
+  ignore line: [Thread model: posix]
+  ignore line: [Supported LTO compression algorithms: zlib zstd]
+  ignore line: [gcc version 13.2.0 (crosstool-NG UNKNOWN - tttapa/docker-arm-cross-toolchain:armv8-rpi3) ]
+  ignore line: [COMPILER_PATH=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/bin/]
+  ignore line: [LIBRARY_PATH=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/lib/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/lib/:/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_a5062' '-shared-libgcc' '-mcpu=cortex-a53' '-mfloat-abi=hard' '-mfpu=neon-fp-armv8' '-mtls-dialect=gnu' '-marm' '-mlibarch=armv8-a+crc+simd' '-march=armv8-a+crc+simd' '-dumpdir' 'cmTC_a5062.']
+  link line: [ /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/collect2 -plugin /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/liblto_plugin.so -plugin-opt=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccHX8VxN.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot --eh-frame-hdr -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -o cmTC_a5062 /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib/crt1.o /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib/crti.o /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/crtbegin.o -L/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0 -L/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc -L/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/lib -L/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/lib -L/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib CMakeFiles/cmTC_a5062.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/crtend.o /home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib/crtn.o]
+    arg [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../libexec/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccHX8VxN.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [--sysroot=/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib/ld-linux-armhf.so.3] ==> ignore
+    arg [-X] ==> ignore
+    arg [-m] ==> ignore
+    arg [armelf_linux_eabi] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_a5062] ==> ignore
+    arg [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib/crt1.o] ==> ignore
+    arg [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib/crti.o] ==> ignore
+    arg [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/crtbegin.o] ==> ignore
+    arg [-L/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0] ==> dir [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0]
+    arg [-L/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc] ==> dir [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc]
+    arg [-L/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/lib] ==> dir [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/lib]
+    arg [-L/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/lib] ==> dir [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/lib]
+    arg [-L/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib] ==> dir [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib]
+    arg [CMakeFiles/cmTC_a5062.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/crtend.o] ==> ignore
+    arg [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib/crtn.o] ==> ignore
+  collapse library dir [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0] ==> [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0]
+  collapse library dir [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc] ==> [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/lib/gcc]
+  collapse library dir [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0/../../../../armv8-rpi3-linux-gnueabihf/lib] ==> [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/lib]
+  collapse library dir [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/lib] ==> [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot/lib]
+  collapse library dir [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/bin/../armv8-rpi3-linux-gnueabihf/sysroot/usr/lib] ==> [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot/usr/lib]
+  implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+  implicit dirs: [/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/lib/gcc/armv8-rpi3-linux-gnueabihf/13.2.0;/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/lib/gcc;/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/lib;/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot/lib;/home/student/opt/x-tools/armv8-rpi3-linux-gnueabihf/armv8-rpi3-linux-gnueabihf/sysroot/usr/lib]
+  implicit fwks: []
+
+

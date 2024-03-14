@@ -1,0 +1,5 @@
+Run Mosquitto in case system has been powered off: sudo systemctl start mosquitto
+
+Enable Mosquitto service in case it was't at start up: sudo systemctl enable mosquitto
+
+Check Mosquitto service: sudo systemctl status mosquitto
