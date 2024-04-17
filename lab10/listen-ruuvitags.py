@@ -26,6 +26,7 @@ def on_connect(client, userdata, flags, rc):
     # reconnect then subscriptions will be renewed.
     client.subscribe("$SYS/#")
 
+macs = ["E8:34:26:17:c6:4D"]
 
 async def main():
     signal.signal(signal.SIGINT, signal_handler)
@@ -43,7 +44,7 @@ async def main():
     async with AsyncioPahoClient() as client:
         client.on_connect = on_connect
         client.connect_async(mqtt_broker, 1883, 60)
-    async for data in RuuviTagSensor.get_data_async():
+    async for data in RuuviTagSensor.get_data_async(macs):
         #print(data)
         # Flatten the nested structure
         flat_data = {"mac": data[0]}
