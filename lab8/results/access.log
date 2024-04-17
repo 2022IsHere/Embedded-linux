@@ -1,0 +1,29 @@
+2024-03-19 16:33:58: (connections.c.770) fd:11 rqst: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+2024-03-19 16:33:58: (connections.c.770) fd:11 rqst: Accept-Language: en-US,en;q=0.5
+2024-03-19 16:33:58: (connections.c.770) fd:11 rqst: Accept-Encoding: gzip, deflate
+2024-03-19 16:33:58: (connections.c.770) fd:11 rqst: Connection: keep-alive
+2024-03-19 16:33:58: (connections.c.770) fd:11 rqst: Upgrade-Insecure-Requests: 1
+2024-03-19 16:33:58: (connections.c.770) fd:11 rqst: If-Modified-Since: Tue, 19 Mar 2024 09:25:26 GMT
+2024-03-19 16:33:58: (connections.c.770) fd:11 rqst: If-None-Match: "11101930"
+2024-03-19 16:33:58: (connections.c.770) fd:11 rqst: 
+2024-03-19 16:33:58: (response.c.420) -- parsed Request-URI
+2024-03-19 16:33:58: (response.c.422) Request-URI     : /
+2024-03-19 16:33:58: (response.c.424) URI-scheme      : http
+2024-03-19 16:33:58: (response.c.426) URI-authority   : 192.168.68.55
+2024-03-19 16:33:58: (response.c.428) URI-path (clean): /
+2024-03-19 16:33:58: (response.c.430) URI-query       : 
+2024-03-19 16:33:58: (response.c.509) -- logical -> physical
+2024-03-19 16:33:58: (response.c.511) Doc-Root     : /var/www/html
+2024-03-19 16:33:58: (response.c.513) Basedir      : /var/www/html
+2024-03-19 16:33:58: (response.c.515) Rel-Path     : /
+2024-03-19 16:33:58: (response.c.517) Path         : /var/www/html/
+2024-03-19 16:33:58: (response.c.536) -- handling subrequest
+2024-03-19 16:33:58: (response.c.538) Path         : /var/www/html/
+2024-03-19 16:33:58: (response.c.540) URI          : /
+2024-03-19 16:33:58: (response.c.542) Pathinfo     : 
+2024-03-19 16:33:58: (mod_indexfile.c.151) -- handling the request as Indexfile
+2024-03-19 16:33:58: (mod_indexfile.c.153) URI          : /
+2024-03-19 16:33:58: (response.c.179) fd:11 resp: HTTP/1.1 304 Not Modified
+2024-03-19 16:33:58: (response.c.179) fd:11 resp: Content-Type: text/html
+2024-03-19 16:33:58: (response.c.179) fd:11 resp: ETag: "11101930"
+

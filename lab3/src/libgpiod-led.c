@@ -58,6 +58,7 @@ int main()
 {
 
 
+
 	char *chipname = "gpiochip0";
 	unsigned int led_line_num = 23;	// GPIO Pin #23
 	unsigned int button_line_num = 22; // GPIO Pin #22
@@ -94,7 +95,6 @@ int main()
 
 	// Setup GPIO line for button
 	button_line = gpiod_chip_get_line(chip, button_line_num);
-	system("gpioget --bias=pull-down gpiochip0 22"); 
 	if (!button_line) {
         perror("Get button line failed\n");
         goto release_button_line;

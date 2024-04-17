@@ -1,9 +1,8 @@
 /*
- * timers_init.c
- *
- *  Created on: 17 Sep 2019
- *      Author: Jarno Tuominen
- */
+    **** STEPPER ****
+    Idea is to use raspberry pi built-in HW timer.
+    Using-S-Curve table values to control servo motor to max speed and off.
+*/
 
 
 /* Timer initialization routines and handlers */

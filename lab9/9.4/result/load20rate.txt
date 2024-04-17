@@ -1,0 +1,10 @@
+
+
+* TIME INTERVAL 50 ms
+* 4 browser windows open
+
+Result:
+ PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND    
+ 3213 www-data  20   0    8728   7324   5768 R  ~20,5   0,2   2:40.76 lighttpd  
+ 
+ with 50 ms time intervals, and 4 windows open, the server load = second/time interval * windows open = result => (1000 / 50) * 4 = 80

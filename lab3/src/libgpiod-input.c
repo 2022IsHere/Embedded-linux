@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 		goto end;
 	}
 
-	line = gpiod_chip_get_line(chip, line_num);
+	line = gpiod_chip_get_line(chip, line_num); 
 	if (!line) {
 		perror("Get line failed\n");
 		goto close_chip;
