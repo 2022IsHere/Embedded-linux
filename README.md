@@ -1,9 +1,9 @@
 # embedded-linux-labs
 
 
-## Student instructions
+## Instructions
 
-New to git? Please remember to take TUAS git online course!!!
+New to git? Please remember to take git online course!!!
 
 1. Install course VM (you need to have VirtualBox installed).
 2. <b>Fork</b> this repository so that you have your own exact replica with write permissions.
